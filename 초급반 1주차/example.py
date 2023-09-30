@@ -1,7 +1,7 @@
 import os
 my_input = input("이곳에 입력하세요: ")
 for i in range(1,5):
-	print("{}회: {}\n{}".format(i, input, os.listdir()))
+    print("{}회: {}\n{}".format(i, input, os.listdir()))
  
 print("This","is","Σπάρτη", sep="!")
 #Output:This!is!Σπάρτη
