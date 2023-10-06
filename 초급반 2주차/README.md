@@ -75,7 +75,7 @@ print(z)
 # Console I/O
 ## Console Input
 - 콘솔 창에서 키보드의 입력 값을 전달하는 입력 방식
-- [[초급반 1주차#^3fac27|1주차에서 소개한 input함수를 사용한다.]]
+- [1주차에서 소개한 input함수를 사용한다.](https://github.com/Indigo-Coder-github/Python_Lecture/blob/main/%EC%B4%88%EA%B8%89%EB%B0%98%201%EC%A3%BC%EC%B0%A8/README.md#input)
 ```python
 print(input())
 #Output:입력한 값
@@ -94,7 +94,7 @@ print(x+y)
 ```
 ## Console Output
 - 출력 값을 콘솔 창에 띄워 표시하는 출력 방식
-- [[초급반 1주차#^5a5e69|1주차에서 소개한 print함수를 사용한다.]]
+- [1주차에서 소개한 print함수를 사용한다.](https://github.com/Indigo-Coder-github/Python_Lecture/blob/main/%EC%B4%88%EA%B8%89%EB%B0%98%201%EC%A3%BC%EC%B0%A8/README.md#print)
 # File I/O
 ## File Input
 - 파일에 있는 값을 전달하는 입력 방식
