@@ -1,5 +1,36 @@
 # [break, continue, pass](https://github.com/Indigo-Coder-github/Python_Lecture/tree/main/%EC%B4%88%EA%B8%89%EB%B0%98%205%2C%206%EC%A3%BC%EC%B0%A8#break-else-pass-continue)
 # Assignment Expression(:=)
+- Python 3.8부터 지원하는 기능
+	- `:=`가 바다코끼리를 닮았다고 해서 Walrus Operator라고도 불림
+- `variable := expression`으로 선언
+	- 변수의 재사용성과 가독성을 높이고 코드 줄 수를 줄임
+	- 아래와 같은 형태로 작성할 수 있음
+```python
+import requests
+#request에 대한 코드를 받아와 할당시키면서 값이 200이 넘는지 검사
+#넘는다면 response를 출력
+if (response := requests.get("https://www.naver.com")) > 200:
+    print(response)
+#아래는 위의 코드와 동치인 코드
+response = requests.get("https://www.naver.com")
+if response > 200: print(response)
+#list comprehension 예시
+#데이터의 합을 구하고 평균과 분산을 각각 구한 list
+data = [1,2,3,4,5,6]
+[y := sum(data), y//len(data), sum([i**2 for i in data])//len(data) - (y//len(data))**2]
+#Output:[21, 3, 6]
+def f(x): return x%2
+even_data = [y for x in data if(y := f(x) == 0)]
+#Output:[2, 4, 6]
+```
+- 다만, 단순 할당이나 재할당 형태는 모호성이나 혼란을 피하기 위해 무효한 구문으로 설정되어있거나 유효하더라도 권장하지 않음
+```python
+def f(x): pass
+#아래 예시들은 불가능한 assignment expression임
+y := f(x)
+y0 = y1 := f(x)
+g(x=y:=f(x))
+```
 # Iterator(반복자)
 - 클래스에 구현된 `__iter__`메서드를 호출해 반환된 객체
 	- 내장 라이브러리인 [itertools](https://docs.python.org/3/library/itertools.html)는 iterator에 대한 더 효율적이고 다양한 기능을 지원함
@@ -97,7 +128,77 @@ print(male_list)
 #Output:["John: Male", "Henry: Male"]
 ```
 # Closure
-## global
+- 자신을 둘러싼 scope의 상태 값을 기억하는 함수
+- 아래의 세 가지 조건을 만족해야 함, 만족하지 않는다면 단순히 중첩 함수에 해당함
+	1. 어떤 함수의 내부 함수이어야 함(중첩 함수)
+		- lambda를 반환하는 함수도 closure에 해당함
+	2. 외부 함수의 변수 반드시 참조하고 있음
+	3. 외부 함수는 이 내부 함수를 반환해야 함
+```python
+def shoot(bullet: int):
+    maganize = bullet
+    def burst():
+        print(maganize - 3)
+    return burst
+f = shoot(40)
+f() #Output:37
+```
+- f가 shoot을 호출하면 burst를 반환받으며 shoot이 종료되는데 burst는 shoot의 로컬 변수를 참조하고 있음
+	- closure은 내부 함수가 이런 환경을 동적으로 저장하도록 하는 역할
+- closure은 전역변수를 남발하지 않게 하고 데이터 은닉의 효과도 지님
+	- 특정 scope나 코드블럭에서만 특정 변수를 사용할 수 있게 하는 기능이 없다면 전역변수의 책임소재가 불명확해짐
+## scope
+- 접근할 수 있는 변수의 범위
+	- global scope면 코드 전체에서 접근할 수 있고 이러한 변수는 global variable(전역 변수)
+	- local scope면 변수가 생성된 범위에서만 접근할 수 있고 이러한 변수는 local variable(지역 변수)
+### global
+- local scope에서 global variable을 호출하기 위해 사용하는 구문
+	- global을 남발하면 변수의 사용 범위가 꼬이면 코드의 가독성이 떨어지고 버그가 많이 생김
+		- 때문에 이러한 구문을 남발하지 않도록 설계하는 것이 중요함
+		- 이를 가능하게 하는 것이 closure
+```python
+maganize = 40
+def shoot():
+    global maagnize
+    maganize -= 1
+shoot()
+shoot()
+print(maganize)#Output: 38
+#global을 선언하지 않으면 local variable인 magnize를 찾을 수 없다는 오류 발생
+```
+## 중첩 함수
+- 함수 내 함수를 정의하면 외부 함수가 내부 함수를 호출해야 내부 함수가 정상적으로 작동함
+	- 함수 자체를 호출할 때 내부 함수는 호출할 수 없기 때문에 외부 함수를 호출해야 함
+- 한편, 내부 함수는 외부 함수의 지역변수에 접근할 수 있음
+	- read-only이기 때문에 값의 수정은 불가능
+```python
+def shoot():
+    def show_remain_bullet():
+        maganize = 39
+        print(maganize)
+    return show_remain_bullet
+f = shoot()
+f() #Output:39
+```
+### nonlocal
+- 내부 함수가 외부 함수의 local variable을 접근하기 위해 사용하는 구문
+```python
+def shoot():
+    maganize = 40
+    def burst():
+        nonlocal maganize
+        maganize -= 3
+    shoot()
+    return maganize
+print(shoot())#Output:37
+```
+## First Class Object(일급 객체)
+- 아래의 조건을 모두 만족하는 객체
+	1. 할당 명령문의 대상
+	2. `==`연산의 대상
+	3. 함수의 파라미터가 될 수 있음
+	4. 함수의 반환 값이 될 수 있음
+- Python에서 함수 또한 일급객체이기 때문에 위의 조건을 만족함
 # Decorator(장식자)
 - 함수를 장식하는, @로 시작하는 구문
 - 함수를 매개변수로 받아 이를 실행하는 내부 함수인 wrapper 함수가 정의되어 있음
@@ -167,6 +268,61 @@ def selection_sort(arr: list) -> list:
 needed_sorting = [6,1,5,2,4,3]
 print(selection_sort(needed_sorting))
 ```
+## Property
+- 객체지향의 [접근 제한자](https://github.com/Indigo-Coder-github/Python_Lecture/tree/main/%EC%A4%91%EA%B8%89%EB%B0%98%202%EC%A3%BC%EC%B0%A8%2C%20%EC%B4%88%EA%B8%89%EB%B0%98%208%EC%A3%BC%EC%B0%A8#visibility%EA%B0%80%EC%8B%9C%EC%84%B1-%EC%A0%91%EA%B7%BC-%EC%A0%9C%ED%95%9C%EC%9E%90)에 대해 객체의 속성 접근은 getter와 setter라는 메서드를 통해 이뤄짐
+	- getter는 속성의 값을 read, setter는 속성의 값을 write
+- 그러나 앞서 설명한 바와 같이 Python에 접근 제한자라는 개념이 없기 때문에 getter, setter를 쓰는 것은 Pythonic하지 않으나 사용하고자 한다면 `@property` decorator를 통해 구현할 수 있음
+	- 결국 모든 속성에 대해 getter와 setter를 모두 작성해줘야 하기 때문에 property를 사용하는 것도 재사용성이 좋지 않음
+	- 재사용성을 극단적으로 높이기 위해서는 [getattr, setattr](https://github.com/Indigo-Coder-github/Python_Lecture/tree/main/%EC%A4%91%EA%B8%89%EB%B0%98%203%EC%A3%BC%EC%B0%A8#delattrgetattrhasattrsetattrobject-name)을 사용해 구현할 수 있으며 [이를 극단적으로 줄일 수 있는 방법에 대해서는 이 링크를 참조](https://dojinkimm.github.io/python/2019/08/24/effective-python-5.html)
+	- 이에 대한 자세한 설명은 [링크의 질문의 두 번째 답변을 참조](https://stackoverflow.com/questions/2627002/whats-the-pythonic-way-to-use-getters-and-setters)
+```python
+class Database:
+    def __init__(self):
+        self.__total_data = 0 #name mangling
+
+    @property
+    def total_data(self):
+        return self.__total_data
+
+    @property.setter
+    def total_data(self, value):
+        self.__total_data = value
+
+db = DataBase()
+print(db.total_data) #Output:0
+db.total_data = 10
+```
 # Meta Class
-# Asyncio
-# Multithreading
+- 클래스를 만드는 클래스로 두 가지의 구현 방법이 있음
+	- type을 사용하여 동적으로 클래스를 생성
+	- type을 상속받아서 메타클래스를 구현
+- 추상 클래스도 메타 클래스 방식 중 하나
+- Python의 Singleton Pattern을 구현하고자 할 때 Meta Class를 사용할 수 있으며 이에 대해서는 [코딩도장과](https://dojang.io/mod/page/view.php?id=2468) [이러한 글들을 참고](https://jh-bk.tistory.com/43)
+## type을 사용해 동적을 생성
+- `class_name = type("class_name", parent_class: tuple, attr_and_methods: dict)`로 클래스를 지정해 instance를 생성
+	- 메서드는 람다식으로 작성할 수 있음
+```python
+def return_db_size(self):
+    return self.total_data
+Database = type("Database", (), {"total_data": 0, "return_db_size": return_db_size})
+db = Database()
+print(db.return_db_size())
+#Output 0
+```
+## type을 상속받은 메타클래스
+### `__new__`
+- 메타클래스로 새 클래스를 만들 때 호출되는 메서드
+```python
+class MetaDatabase(type):
+	#메타 클래스 자체를 인자로 주기 때문에
+	#self가 아닌 metacls를 관습적으로 사용
+    def __new__(metacls, name, bases, namespace):
+        namespace["total_data"] = 0
+        #lambda를 사용하고자 하면 parameter로 self를 줘야 함
+        namespace["return_db_size"] = lambda self: self.total_data
+        return type.__new__(metacls, name, bases, namespace)
+
+DataBase = MetaDatabase("DataBase",(),{}) #먼저 메타클래스로 클래스를 생성
+db = DataBase() #그 후에 클래스로 객체 생성
+print(db.return_db_size()) #Output:0
+```

@@ -1,3 +1,26 @@
+import requests
+#request에 대한 코드를 받아와 할당시키면서 값이 200이 넘는지 검사
+#넘는다면 response를 출력
+if (response := requests.get("https://www.naver.com")) > 200:
+    print(response)
+#아래는 위의 코드와 동치인 코드
+response = requests.get("https://www.naver.com")
+if response > 200: print(response)
+#list comprehension 예시
+#데이터의 합을 구하고 평균과 분산을 각각 구한 list
+data = [1,2,3,4,5,6]
+[y := sum(data), y//len(data), sum([i**2 for i in data])//len(data) - (y//len(data))**2]
+#Output:[21, 3, 6]
+def f(x): return x%2
+even_data = [y for x in data if(y := f(x) == 0)]
+#Output:[2, 4, 6]
+
+#def f(x): pass
+##아래 예시들은 불가능한 assignment expression임
+#y := f(x)
+#y0 = y1 := f(x)
+#g(x=y:=f(x))
+
 class CityMap:
     def __init__(self, stop):
         self.city_list = ["Seoul", "Busan", "Incheon", "Jeonju"]
@@ -90,3 +113,73 @@ def selection_sort(arr: list) -> list:
 needed_sorting = [6,1,5,2,4,3]
 print(selection_sort(needed_sorting))
 #선택정렬의 결과가 출력되고 실행시간이 출력됨
+
+def shoot(bullet: int):
+    maganize = bullet
+    def burst():
+        print(maganize - 3)
+    return burst
+f = shoot(40)
+f() #Output:37
+
+maganize = 40
+def shoot():
+    global maagnize
+    maganize -= 1
+shoot()
+shoot()
+print(maganize)#Output: 38
+#global을 선언하지 않으면 local variable인 magnize를 찾을 수 없다는 오류 발생
+
+def shoot():
+    def show_remain_bullet():
+        maganize = 39
+        print(maganize)
+    return show_remain_bullet
+f = shoot()
+f() #Output:39
+
+def shoot():
+    maganize = 40
+    def burst():
+        nonlocal maganize
+        maganize -= 3
+    shoot()
+    return maganize
+print(shoot())#Output:37
+
+class Database:
+    def __init__(self):
+        self.__total_data = 0 #name mangling
+        
+    @property
+    def total_data(self):
+        return self.__total_data
+    
+    @property.setter
+    def total_data(self, value):
+        self.__total_data = value
+
+db = Database()
+print(db.total_data) #Output:0
+db.total_data = 10
+
+def return_db_size(self):
+    return self.total_data
+Database = type("Database", (), {"total_data": 0, "return_db_size": return_db_size})
+db = Database()
+print(db.return_db_size())
+#Output 0
+
+class MetaDatabase(type):
+    #메타 클래스 자체를 인자로 주기 때문에
+    #self가 아닌 metacls를 관습적으로 사용
+    def __new__(metacls, name, bases, namespace):
+        namespace["total_data"] = 0
+        #lambda를 사용하고자 하면 parameter로 self를 줘야 함
+        namespace["return_db_size"] = lambda self: self.total_data
+        return type.__new__(metacls, name, bases, namespace)
+
+DataBase = MetaDatabase("DataBase",(),{}) #먼저 메타클래스로 클래스를 생성
+db = DataBase() #그 후에 클래스로 객체 생성
+print(db.return_db_size()) #Output:0
