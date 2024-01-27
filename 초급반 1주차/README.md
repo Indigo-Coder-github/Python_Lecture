@@ -2,11 +2,11 @@
  - 해당 강의에선 Python 3.10과 VS Code를 이용해 실습
 ## Python 설치하기
  - https://www.python.org/downloads 에서 자신이 원하는 버전과 현재 자신의 OS에 맞춰 Python을 다운로드 할 수 있다.
-<img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/4def75a/%EC%B4%88%EA%B8%89%EB%B0%98%201%EC%A3%BC%EC%B0%A8/install%20python%201.png" width="720">
+<img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/2023-2/%EC%B4%88%EA%B8%89%EB%B0%98%201%EC%A3%BC%EC%B0%A8/install%20python%201.png" width="720">
  - Add Python to PATH를 체크해놔야 나중에 환경변수를 편집하는 불상사가 발생하지 않는다.
-<img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/4def75a/%EC%B4%88%EA%B8%89%EB%B0%98%201%EC%A3%BC%EC%B0%A8/install%20python%202.png" width="720">
+<img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/2023-2/%EC%B4%88%EA%B8%89%EB%B0%98%201%EC%A3%BC%EC%B0%A8/install%20python%202.png" width="720">
  - for all users를 체크하는 것을 권장하는 편(관리자 권한이 부여됨)이다.
-<img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/4def75a/%EC%B4%88%EA%B8%89%EB%B0%98%201%EC%A3%BC%EC%B0%A8/install%20python%203.PNG" width="720">
+<img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/2023-2/%EC%B4%88%EA%B8%89%EB%B0%98%201%EC%A3%BC%EC%B0%A8/install%20python%203.PNG" width="720">
  - 최종적으로 install하여 명령 프롬프트에 python을 입력했을 때 python 인터프리터 창으로 진입하면 정상적으로 설치된 것이다.
 
 ## Python 3.10 vs 3.11
@@ -42,7 +42,7 @@
  - VS Code는 오픈소스 기반이라 이에 대한 확장 기능들이 상당히 많다.
 	 - 언어에 대한 공식 지원, 혹은 사용자가 만든 지원들 뿐만 아니라 개발에 필요한 다양한 도구들도 있다.
 	 - [그만큼 정말 뻘짓같은 확장들도 꽤 있다.](https://www.youtube.com/watch?v=-5cSTqXGDUs)
- - 왼쪽에 <img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/4def75a/%EC%B4%88%EA%B8%89%EB%B0%98%201%EC%A3%BC%EC%B0%A8/%ED%99%95%EC%9E%A5.PNG">을 누르면(혹은 Ctrl+Shift+X) 상점처럼 확장이 열린다. 이 중에서 Microsoft에서 제공하는 Python을 설치한다.
+ - 왼쪽에 <img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/2023-2/%EC%B4%88%EA%B8%89%EB%B0%98%201%EC%A3%BC%EC%B0%A8/%ED%99%95%EC%9E%A5.PNG">을 누르면(혹은 Ctrl+Shift+X) 상점처럼 확장이 열린다. 이 중에서 Microsoft에서 제공하는 Python을 설치한다.
 	 - 그 외 Don Jayamanne의 Python Extension Pack에서 Django와 Jinja(각각 Django와 Flask에서 필요하다.)를 제외하고 설치하는 것을 권장한다.
  - 설치 시 기본 언어는 영어이다. 본인이 영어로 개발하는 습관을 들이고 싶다면 놔둬고 되고 한국어를 쓰고 싶다면 Microsoft에서 제공하는 Korean Language Pack for Visual Studio Code을 설치한다.
 ## 무언가 실행하기
@@ -133,7 +133,7 @@ print(f"This is {var3}") #f-string을 활용
  - F11을 누르면 다음 줄로 이동하며 F5를 누르면 중단점에 다시 도달할 전까지 코드를 실행한다.
 	 - 중단점 없이 디버깅할 경우 오류가 난 지점에서 멈추며 오류가 없다면 프로그램을 정상적으로 종료한다.
  - 오류의 원인을 찾지 못하거나 중요한 실행을 하기 전 단위 테스트를 할 때 매우 유용하다.
-<img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/4def75a/%EC%B4%88%EA%B8%89%EB%B0%98%201%EC%A3%BC%EC%B0%A8/%EB%94%94%EB%B2%84%EA%B9%85.png" width="720">
+<img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/2023-2/%EC%B4%88%EA%B8%89%EB%B0%98%201%EC%A3%BC%EC%B0%A8/%EB%94%94%EB%B2%84%EA%B9%85.png" width="720">
 
 ### 중단점
  - line number 옆을 클릭해서 생성된 빨간 버튼
