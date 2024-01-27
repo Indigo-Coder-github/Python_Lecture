@@ -23,7 +23,7 @@
 	- 많은 사이트에서 웹 서버의 부하를 막기 위해 Bot을 막음
 		- header에 user-agent를 전달하거나 stealth selenium 라이브러리를 사용
 ## 3. 추출하려는 데이터의 위치
-<img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/4def75a/%EC%B4%88%EA%B8%89%EB%B0%98%201%EC%A3%BC%EC%B0%A8/install%20python%202.png" width="720">
+<img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/2023-2/%EC%B4%88%EA%B8%89%EB%B0%98%201%EC%A3%BC%EC%B0%A8/install%20python%202.png" width="720">
 
 - 추출하려는 데이터 요소에 우클릭-검사를 통해 HTML 상에서 어디에 위치했는지 파악
 	- JSON, XML이라면 해당 파일의 구조를 파악
@@ -34,7 +34,7 @@
 - Python에서 단순하고 우아한, 사람지향적인 HTTP 라이브러리
 - [전체적인 API는 여기서 참고](https://requests.readthedocs.io/en/latest/api/)
 ## Server-Client
-<img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/main/%EC%A4%91%EA%B8%89%EB%B0%98%205%2C%206%EC%A3%BC%EC%B0%A8/Server-Client.png" width="720">
+<img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/2023-2/%EC%A4%91%EA%B8%89%EB%B0%98%205%2C%206%EC%A3%BC%EC%B0%A8/Server-Client.png" width="720">
 
 ```python
 import requests
