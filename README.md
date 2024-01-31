@@ -11,3 +11,4 @@
 - 2024학년도 1학기
 - 기초반 , 응용반
 - 기초반의 각 폴더의 READ.md가 강의자료, example.ipynb 파일은 예제코드, test.ipynb가 실습파일
+- Contributor:
