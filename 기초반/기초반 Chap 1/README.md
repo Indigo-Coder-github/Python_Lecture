@@ -1,5 +1,13 @@
 # 기초반 1차시
 
+## TOC
+
+- [1. Python 개발환경 설치](#1-python-개발환경-설치)
+  - [1-1. python 설치하기](#1-1-python-설치하기)
+    - [Python 3.10 vs 3.11 vs 3.12](#python-310-vs-311-vs-312)
+    - [Anaconda](#anaconda)
+  - [1-2. ide는 어떤 것이 좋을까](#1-2-ide는-어떤-것이-좋을까)
+
 ## 1. Python 개발환경 설치
 
 - 해당 강의 자료의 개발 환경은 Python 3.10, VS Code, Windows 10
@@ -18,7 +26,7 @@
 <img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/2023-2/%EC%B4%88%EA%B8%89%EB%B0%98%201%EC%A3%BC%EC%B0%A8/install%20python%203.PNG" width="720">
 - 최종적으로 install하여 명령 프롬프트에 python을 입력했을 때 python 인터프리터 창으로 진입하면 정상적으로 설치된 것이다.
 
-### Python 3.10 vs 3.11 vs 3.12
+#### 1-1-1. Python 3.10 vs 3.11 vs 3.12
 
 - minor 버전의 매 업데이트는 약 한 달 주기로 10월에 이뤄진다.
 
@@ -27,9 +35,10 @@
 |release date|2021-10-04|2022-10-24|2023-10-02|
 |업데이트된 내용|복수타입힌트</br>에러메시지 개선</br>match-case문 추가|CPython 개선</br>복수 예외처리 동시처리</br>에러 메시지 추가 개선</br>type hint로 Self 추가|사용하는/사용하지 않는</br>모듈과 기능들 대규모 점검</br>f-string 개선|
 
-### Anaconda
+#### 1-1-2. Anaconda
 
 - Anaconda는 Python 라이브러리를 설치, 관리에 편의성을 지원하는 도구
+  - 다만 자잘한 버그나 오류가 많아 사용에는 오히려 불편할수도 있다.
 - pip와 기능이 동일하기 때문에 pip를 쓸 줄 안다면 굳이라는 생각이 들 수 있다.
 - GUI 기반으로 라이브러리의 설치, 업그레이드 등을 지원해주고 R과의 호환성도 겸비하고 있다.
 
@@ -37,25 +46,26 @@
 
 - IDE는 Integrated Development Environment(통합 개발 환경)의 줄임말로 프로그램 개발에 있어서 모든 기능을 통합한 프로그램이다.
 - 대표적인 Python IDE는 IDLE, PyCharm, VS Code, github.dev가 있다.
+  - 이외에도 XCode, Zed, goorm, 메모장 등이 있다.
 
-#### IDLE
+#### 1-2-1. IDLE
 
 - Python 기본 내장 IDE
 - 텍스트 에디터에 색칠놀이 한 수준이라 실제 개발에선 잘 사용되지 않는다.
 
-#### PyCharm
+#### 1-2-2. PyCharm
 
 - JetBrain사에서 제공하는 Python 전용 IDE
 - 강력한 자동완성기능과 편의성을 제공한다.
 - 유료라는 문제는 학교 이메일 라이선스로 해결할 수 있지만 IntelliJ와 마찬가지로 프로그램이 무겁다는 단점이 있다.
 
-#### VS Code
+#### 1-2-3. VS Code
 
 - Microsoft 사에서 제공하는 오픈소스 기반의 IDE
 - 2016년 혜성처럼 등장해 자사의 Visual Studio를 밀어냈고 현재 점유율이 높은 IDE 중 하나이다.
 - 가볍고 확장성이 좋으며 크로스 플랫폼이라는 장점이 있지만 완성도나 지원기능 측면에서 유료 IDE보다 상대적으로 부족해보인다는 단점이 있다.
 
-#### github.dev
+#### 1-2-4. github.dev
 
 - Github에서 제공하는 웹 기반 VS Code IDE
 - VS Code의 장단점을 함께 공유한다고 보면 된다.
@@ -78,7 +88,7 @@
 2. 파일-새 텍스트 파일(혹은 Ctrl+N)을 통해 언어 선택으로 Python을 선택하거나 저장(혹은 Ctrl+S)을 통해 .py의 형태로 파일을 저장하면 Python 코드로 인식한다.
 3. 실행-디버깅없이 실행(혹은 Ctrl+F5)으로 디버깅하지 않고 실행할 수 있다.
 
-#### .py, .ipynb
+#### 2-2-1. .py, .ipynb
 
 - .py는 python 파일의 확장자이다.
 - .ipynb는 Jupyter Notebook의 확장자이다.
@@ -96,23 +106,23 @@
 - 오류의 원인을 찾지 못하거나 중요한 실행을 하기 전 단위 테스트를 할 때 매우 유용하다.
 <img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/2023-2/%EC%B4%88%EA%B8%89%EB%B0%98%201%EC%A3%BC%EC%B0%A8/%EB%94%94%EB%B2%84%EA%B9%85.png" width="720">
 
-#### 중단점
+#### 2-3-1. 중단점
 
 - line number 옆을 클릭해서 생성된 빨간 버튼
 - 코드가 진행되다가 중단점이 있는 위치에서 멈추며 F11을 누르거나 F5를 누르면 해당 line이 실행된다.
 
-#### 변수
+#### 2-3-2. 변수
 
 - 현재 실행되는 파일에서 사용하고 있는 변수
 - Local은 지역변수, Global은 전역변수의 값을 보여준다.
 
-#### 조사식
+#### 2-3-3. 조사식
 
 - 현재 실행 파일에 대한 python 코드의 결과를 표시
 - 예를 들어 조사식의 +버튼을 누르고 `print(i)`를 입력하면 콘솔 창에 현재 i값이 표시된다.
 - 코드가 실행 중일 때 코드를 입력해 값을 조사할 수 있다.
 
-#### 호출스택
+#### 2-3-4. 호출스택
 
 - 현재 스택 영역에 호출된 파일을 표시
 
