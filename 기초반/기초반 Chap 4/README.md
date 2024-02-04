@@ -13,22 +13,6 @@
 - `function_name(parameter_name=parameter_value)`로 호출한다.
 - 최종적으로 함수는 `def function_name(args, args=default, *args, **kwargs)`의 형태로 parameter를 가진다.
 
-### 1-1. Positional Argument(위치 인수)
-
-- 함수에 argument를 순서대로 전달하는 방식
-
-### 1-2. Variable Argument(가변 인수)
-
-- parameter의 수가 정해지지 않은 
-  - 가변 인수는 구현할 때 parameter 앞에 `*`를 붙이며 관습적으로는 `*args`로 표기한다.
-  - 고정 인수와 함께 사용하고자 할 때는 고정 인수를 먼저 선언하고 가변 인수를 선언한다.
-
-### 1-3. Keyword Argument(키워드 인수)
-
-- 함수의 인수를 key-value 쌍으로 사용할 수 있는 기능
-  - parameter은 parameter 이름과 해당 parameter에 들어갈 값의 쌍으로 이뤄진 dictionary로 주어져야 한다.
-  - 키워드 인수를 구현할 때 parameter 앞에 `**`를 붙이며 관습적으로는 `**kwargs`로 표기한다.
-
 ## 2. Objected Oriented Programming (OOP, 객체지향 프로그래밍)
 
 - 프로그래밍 패러다임의 하나

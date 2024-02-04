@@ -138,14 +138,6 @@
     - -0은 0으로 취급하기 때문에 가장 마지막의 요소는 -1부터 시작한다.
 - 예제코드를 보는 것이 이해하기 쉽다.
 
-### 3-3. [Unpacking](https://docs.python.org/3/tutorial/controlflow.html#tut-unpacking-arguments)
-
-- Iterator의 요소를 *(Asterisk)와 ,(Comma)로 분해하여 호출하는 것
-  - 모든 Sequence는 Unpacking이 가능하다.
-- 기본적으로 할당받는 변수나 인자의 수와 요소의 수가 일치한다면 asterisk를 사용하지 않아도 Unpacking이 이뤄진다.
-  - 즉, asterisk와 comma를 이용해 모든 요소가 변수나 인자에 할당될 수 있어야 하며 요소가 더 많으면 ValueError가, 요소를 모두 수용할 수 없으면 SyntaxError가 발생한다.
-- 예제코드를 보는 것이 이해하기 쉽다.
-
 ## 4. list
 
 - 일반적으로 비슷한 요소를 저장하는 Mutable Sequence Type
