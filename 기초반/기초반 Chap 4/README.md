@@ -1,5 +1,39 @@
 # 기초반 4차시
 
+## TOC
+
+- [1. Function(함수)](#1-function함수)
+- [2. Objected Oriented Programming](#2-objected-oriented-programming-oop-객체지향-프로그래밍)
+  - [2-1. Class(클래스)](#2-1-class클래스)
+  = [2-2. Object(객체)](#2-2-object객체)
+    - [2-2-1. Immutable Object](#2-2-1-immutable-object)
+    - [2-2-2. Mutable Object](#2-2-2-mutable-object)
+      - [shallow copy, deep copy(얕은 복사, 깊은 복사)](#shallow-copy-deep-copy얕은-복사-깊은-복사)
+  - [2-3. Instance(인스턴스)](#2-3-instance인스턴스)
+    - [2-3-1. Constructor(생성자)](#2-3-1-constructor생성자)
+    - [2-3-2. Desrtructor(소멸자)](#2-3-2-destructor소멸자)
+  - [2-4. Property(속성)](#2-4-property속성)
+    - [2-4-1. Class Variabel(클래스 속성)](#2-4-1-class-variable클래스-속성)
+  - [2-5. Method(메서드)](#2-5-method메서드)
+    - [2-5-1. Static Method(정적 메서드)](#2-5-1-static-method정적-메서드)
+    - [2-5-2. Class Method(클래스 메서드)](#2-5-2-class-method클래스-메서드)
+    - [2-5-3. Magic Method(Special Method)](#2-5-3-magic-methodspecial-method)
+  - [2-6. self](#2-6-self)
+- [3. 객체지향 4대 특성](#3-객체지향-4대-특성)
+  - [3-1. Abstraction(추상화)](#3-1-abstraction추상화)
+  - [3-2. Encapsulation(캡슐화)](#3-2-encapsulation캡슐화)
+    - [3-2-1. Visibililty(가시성), 접근 제한자](#3-2-1-visibility가시성-접근-제한자)
+  - [3-3. Inheritance(상속)](#3-3-inheritance상속)
+    - [3-3-1. `super()`](#3-3-1-super)
+    - [3-3-2. Generalization, Specialization(일반화, 상세화)](#3-3-2-generalization-specialization일반화-상세화)
+    - [3-3-3. 포함관계](#3-3-3-포함-관계)
+    - [3-3-4. 다중상속](#3-3-4-다중상속)
+    - [3-3-5. Abstract Class(추상 클래스)](#3-3-5-abstract-class추상-클래스)
+  - [3-4. Polymorphism(다형성)](#3-4-polymorphism다형성)
+    - [3-4-1. Overloading](#3-4-1-overloading)
+    - [3-4-2. Overriding(함수 재정의)](#3-4-2-overriding함수-재정의)
+- [4. API 문서 읽기](#4-api-문서-읽기)
+
 ## 1. Function(함수)
 
 - 반복적으로 사용하는 코드에 이름을 붙여 추상적으로 사용하도록 한 것
@@ -87,14 +121,14 @@
   - operation, member function, instance method 등의 용어와 혼용된다.
 - `instance.method_name(params)`형태로 호출한다.
 
-#### 2-5-1. Static Method
+#### 2-5-1. Static Method(정적 메서드)
 
 - instance를 생성하지 않아도 접근할 수 있는 메서드
   - 인자로 `self`를 받지 않는다.
 - 메서드를 정의한 코드 위에 `@staticmethod`를 써서 해당 메서드가 정적 메서드임을 나타낸다.
   - 일반적으로 유틸리티 함수를 만드는데 사용한다.
 
-#### 2-5-2. Class Method
+#### 2-5-2. Class Method(클래스 메서드)
 
 - instance를 생성하지 않아도 접근할 수 있으면서 클래스 속성, 클래스 메서드에 접근할 수 있는 메서드
   - 즉, static method는 클래스 속성, 클래스 메서드에 접근할 수 없다.
@@ -126,7 +160,7 @@
   - 이를 통해 추상화를 실현시키면서 내부 데이터를 보호하고 은닉한다.
   - 다만, 정보 은닉의 한 방법으로 캡슐화가 있는 것이지 캡슐화가 정보은닉을 항상 보장하는 것은 아니다.
 
-#### 3-1-1. Visibility(가시성), 접근 제한자
+#### 3-2-1. Visibility(가시성), 접근 제한자
 
 - 클래스 내부 요소의 접근을 결정하는 것
   - 객체지향에서 접근 제한자는 public, private, protected로 나뉜다.

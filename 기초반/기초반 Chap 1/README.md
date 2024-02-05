@@ -4,9 +4,39 @@
 
 - [1. Python 개발환경 설치](#1-python-개발환경-설치)
   - [1-1. python 설치하기](#1-1-python-설치하기)
-    - [Python 3.10 vs 3.11 vs 3.12](#python-310-vs-311-vs-312)
-    - [Anaconda](#anaconda)
+    - [1-1-1. Python 3.10 vs 3.11 vs 3.12](#1-1-1-python-310-vs-311-vs-312)
+    - [1-1-2. Anaconda](#1-1-2-anaconda)
   - [1-2. ide는 어떤 것이 좋을까](#1-2-ide는-어떤-것이-좋을까)
+    - [1-2-1. IDLE](#1-2-1-idle)
+    - [1-2-2. PyCharm](#1-2-2-pycharm)
+    - [1-2-3. VS Code](#1-2-3-vs-code)
+    - [1-2-4. github.dev](#1-2-4-githubdev)
+- [2. VS Code 다루기](#2-vs-code-다루기)
+  - [2-1. 확장 설치하기](#2-1-확장-설치하기)
+  - [2-2. 무언가 실행하기](#2-2-무언가-실행하기)
+    -[2-2-1. .py, .ipynb](#2-2-1-py-ipynb)
+  - [2-3. 디버깅](#2-3-디버깅)
+    - [2-3-1. 중단점](#2-3-1-중단점)
+    - [2-3-2. 변수](#2-3-2-변수)
+    - [2-3-3. 조사식](#2-3-3-조사식)
+    - [2-3-4. 호출스택](#2-3-4-호출스택)
+- [3. Variable(변수)](#3-variable변수)
+  -[3.1. Coding Convention](#3-1-coding-convention)
+- [4. Constant(상수)](#4-constant상수)
+- [5. 세미콜론, Indentation](#5-세미콜론-indentation)
+- [6. Console I/O](#6-console-io)
+  - [6-1. Console Input](#6-1-console-input)
+  - [6-2. Console Output](#6-2-console-output)
+    - [6-2-1. format](#6-2-1-format)
+- [7. File I/O](#7-file-io)
+  - [7-1. File Input](#7-1-file-input)
+    - [7-1-1.](#7-1-1-with)
+  - [7-2. File Output](#7-2-file-output)
+- [8. Module(모듈)](#8-module모듈)
+- [9. Comment(주석)](#9-comment주석)
+- [10. Exception Handling(예외처리)](#10-exception-handling예외-처리)
+  - [10-1. try, except](#10-1-try-except)
+  - [10-2. finally, else](#10-2-finally-else)
 
 ## 1. Python 개발환경 설치
 
@@ -19,11 +49,11 @@
 ### 1-1. Python 설치하기
 
 - <https://www.python.org/downloads> 에서 자신이 원하는 버전과 현재 자신의 OS에 맞춰 Python을 다운로드 할 수 있다.
-<img src = ("https://github.com/Indigo-Coder-github/Python_Lecture/blob/2023-2/%EC%B4%88%EA%B8%89%EB%B0%98%201%EC%A3%BC%EC%B0%A8/install%20python%201.png")
+<img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/2024-1/%EA%B8%B0%EC%B4%88%EB%B0%98/%EA%B8%B0%EC%B4%88%EB%B0%98%20Chap%201/install%20python%201.png">
 - Add Python to PATH를 체크해놔야 나중에 환경변수를 편집하는 불상사가 발생하지 않는다.
-<img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/2023-2/%EC%B4%88%EA%B8%89%EB%B0%98%201%EC%A3%BC%EC%B0%A8/install%20python%202.png" width="720">
+<img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/2024-1/%EA%B8%B0%EC%B4%88%EB%B0%98/%EA%B8%B0%EC%B4%88%EB%B0%98%20Chap%201/install%20python%202.png">
 - for all users를 체크하는 것을 권장하는 편(관리자 권한이 부여됨)이다.
-<img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/2023-2/%EC%B4%88%EA%B8%89%EB%B0%98%201%EC%A3%BC%EC%B0%A8/install%20python%203.PNG" width="720">
+<img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/2024-1/%EA%B8%B0%EC%B4%88%EB%B0%98/%EA%B8%B0%EC%B4%88%EB%B0%98%20Chap%201/install%20python%203.PNG">
 - 최종적으로 install하여 명령 프롬프트에 python을 입력했을 때 python 인터프리터 창으로 진입하면 정상적으로 설치된 것이다.
 
 #### 1-1-1. Python 3.10 vs 3.11 vs 3.12
@@ -78,7 +108,7 @@
 - VS Code는 오픈소스 기반이라 이에 대한 확장 기능들이 상당히 많다.
   - 언어에 대한 공식 지원, 혹은 사용자가 만든 지원들 뿐만 아니라 개발에 필요한 다양한 도구들도 있다.
   - [그만큼 정말 뻘짓같은 확장들도 꽤 있다.](https://www.youtube.com/watch?v=-5cSTqXGDUs)
-- 왼쪽에 <img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/2023-2/%EC%B4%88%EA%B8%89%EB%B0%98%201%EC%A3%BC%EC%B0%A8/%ED%99%95%EC%9E%A5.PNG">을 누르면(혹은 Ctrl+Shift+X) 상점처럼 확장이 열린다. 이 중에서 Microsoft에서 제공하는 Python을 설치한다.
+- 왼쪽에 <img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/2024-1/%EA%B8%B0%EC%B4%88%EB%B0%98/%EA%B8%B0%EC%B4%88%EB%B0%98%20Chap%201/%ED%99%95%EC%9E%A5.PNG">을 누르면(혹은 Ctrl+Shift+X) 상점처럼 확장이 열린다. 이 중에서 Microsoft에서 제공하는 Python을 설치한다.
   - 그 외 Don Jayamanne의 Python Extension Pack에서 Django와 Jinja(각각 Django와 Flask에서 필요하다.)를 제외하고 설치하는 것을 권장한다.
 - 설치 시 기본 언어는 영어이다. 본인이 영어로 개발하는 습관을 들이고 싶다면 놔둬고 되고 한국어를 쓰고 싶다면 Microsoft에서 제공하는 Korean Language Pack for Visual Studio Code을 설치한다.
 
@@ -104,7 +134,7 @@
 - F11을 누르면 다음 줄로 이동하며 F5를 누르면 중단점에 다시 도달할 전까지 코드를 실행한다.
   - 중단점 없이 디버깅할 경우 오류가 난 지점에서 멈추며 오류가 없다면 프로그램을 정상적으로 종료한다.
 - 오류의 원인을 찾지 못하거나 중요한 실행을 하기 전 단위 테스트를 할 때 매우 유용하다.
-<img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/2023-2/%EC%B4%88%EA%B8%89%EB%B0%98%201%EC%A3%BC%EC%B0%A8/%EB%94%94%EB%B2%84%EA%B9%85.png" width="720">
+<img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/2024-1/%EA%B8%B0%EC%B4%88%EB%B0%98/%EA%B8%B0%EC%B4%88%EB%B0%98%20Chap%201/%EB%94%94%EB%B2%84%EA%B9%85.png">
 
 #### 2-3-1. 중단점
 
@@ -237,7 +267,7 @@
   - `a.py`에서 `b.py`를 `import`하고 `b.py`에서 `a.py`를 `import`할 수 없다.
   - 여러 파일에 프로그래밍 하는 것이 익숙치 않다면 순환 참조를 일으키는 실수를 범할 수 있어 주의가 필요하다.
 
-## 10. Comment(주석)
+## 9. Comment(주석)
 
 - 코드에 대한 보충설명
 - `#`으로 시작하며 여러 줄을 한 번에 묶는 방식은 지원하지 않는다.
@@ -246,11 +276,11 @@
 - 한글로도 쓸 수 있으나 [PEP8에 코드 주석에 대한 가이드라인이 준수하는 것이 좋다.](https://peps.python.org/pep-0008/#comments)
 - **주석을 작성하는 것은 귀찮지만 나중에 자신이 작성한 코드조차 못알아보기 때문에 주석을 다는 습관을 들이는 것은 필수다.**
 
-## 11. Exception Handling(예외 처리)
+## 10. Exception Handling(예외 처리)
 
 - 코드를 실행하다가 발생하는 오류가 예외(Exception)
 
-### 11-1. try, except
+### 10-1. try, except
 
 - `try: code except Exception_Name: code`
   - code에 실행하고자 하는 코드를, Exception_Name에 검출하려는 오류를, Exception_Name에 해당하는 코드 블록에 오류가 발생했을 때 실행할 코드를 작성한다.
@@ -266,6 +296,6 @@
     - 그래도 전체 예외 처리를 하고자 한다면 `except Exception`으로 명시할 것을 권장하고 있다.
 - 예외 처리는 먼저 일어난 것부터, [더 상위에 있는 계층부터](https://docs.python.org/3/library/exceptions.html#exception-hierarchy) 하나만 처리한다.
 
-### 11-2. finally, else
+### 10-2. finally, else
 
 - `else`는 예외가 발생하지 않았을 때, `finally`는 예외 발생 여부와 무관하게 실행하는 코드이다.

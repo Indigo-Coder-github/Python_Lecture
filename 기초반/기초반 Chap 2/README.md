@@ -1,5 +1,37 @@
 # 기초반 2차시
 
+## TOC
+
+- [1. Numeric Type](#1-numeric-type)
+  - [1-1. int](#1-1-int)
+  - [1-2. float](#1-2-float)
+  - [1-3. complex](#1-3-complex)
+  - [1-4. 연산자](#1-4-연산자)
+    - [1-4-1. int, float 연산자](#1-4-1-int-flaot-연산자)
+    - [1-4-2. 비트 연산자](#1-4-2-비트-연산자)
+- [2. Boolean Type](#2-boolean-type)
+  - [2-1. Boolean 연산자](#2-1-boolean-연산자논리-연산자)
+  - [2-2. 비교 연산자](#2-2-비교-연산자)
+- [3. Sequence Type](#3-sequence-type)
+  - [3-1. Iterator(반복자)](#3-1-iterator반복자)
+  - [3-2. Sequence Type 함수](#3-2-sequence-type-함수)
+  - [3-3. slicing](#3-3-slicing)
+- [4. list](#4-list)
+  - [4-1. list 함수](#4-1-list-함수)
+  - [4-2. list comprehension(리스트 표현식)](#4-2-list-comprehension리스트-표현식)
+  - [4-3. list == array?](#4-3-list--array)
+  - [4-4. 다차원 list 생성 주의](#4-4-다차원-list-생성-주의)
+- [5. tuple](#5-tuple)
+- [6. range](#6-range)
+- [7. string(Text Sequence Type)](#7-string-text-sequence-type)
+  - [7-1. string 함수](#7-1-string-함수)
+- [8. Set Type](#8-set-type)
+  - [8-1. Hash Table(Hashmap, Hashable)](#8-1-hash-tablehashmap-hashable)
+  - [8-2. Set 함수](#8-2-set-함수)
+- [9. dictionary(Mapping Type)](#9-dictionarymapping-type)
+  - [9-1. dictionary 함수](#9-1-dictionary-함수)
+  - [9-2. dictview 함수](#9-2-dictview-함수)
+
 ## 1. Numeric Type
 
 ### 1-1. int
@@ -129,7 +161,7 @@
 |`s.index(x,i,j)`| s에서 첫 번째로 나타나는 x를 찾아 그 index를 반환</br>i와 j는 선택사항이며 설정하면 i번째부터 j-1번째까지에서 탐색|x를 찾지 못했다면 ValueError 발생</br>`s[i:j].index(x)`와 동치같지만 slicing 한 위치를 기준으로 index를 반환|
 |`s.count(x)`|s에서 x가 나타난 횟수를 반환||
 
-### 3-2. slicing
+### 3-3. slicing
 
 - Ada, Go, Python 등 일부 언어에서 지원하는 list에 대한 독특한 기능
 - `s[i:j:k]`로 표시하며 i에서 j-1까지의 요소를 동일한 Sequence Type으로 반환한다.
@@ -205,7 +237,7 @@
 - sequence type이기 때문에 [Sequence Type 함수](https://github.com/Indigo-Coder-github/Python_Lecture/tree/main/%EC%B4%88%EA%B8%89%EB%B0%98%205%2C%206%EC%A3%BC%EC%B0%A8#sequence-type-%ED%95%A8%EC%88%98), [slicing](https://github.com/Indigo-Coder-github/Python_Lecture/tree/main/%EC%B4%88%EA%B8%89%EB%B0%98%205%2C%206%EC%A3%BC%EC%B0%A8#slicing), 음수를 통한 indexing 모두 지원한다.
   - 단, slicing과 음수를 통한 indexing은 3.2 이상부터 지원한다.
 
-## 7. String (Text Sequence Type)
+## 7. string (Text Sequence Type)
 
 - 문자열을 담는 Immutable Sequence Type
 - UTF-8로 인코딩한다.
@@ -275,7 +307,7 @@
 - 다른 집합형 자료형들과 마찬가지로 `x in set`, `len(set)`, `for x in set`등을 지원한다.
   - 삽입 순서에 대한 위치를 기록하지 않기 때문에 indexing, slicing 등은 할 수 없다.
 
-### 8-2. Hash Table(Hashmap, Hashable)
+### 8-1. Hash Table(Hashmap, Hashable)
 
 - key-value 쌍으로 구성된 요소에 대해 key에 대한 hash function 값의 위치에 value를 저장하는 자료구조
   - key는 hash function에 대한 입력값으로 주어지기 때문에 Python에서는 Immutable Type만 사용할 수 있다.
@@ -284,7 +316,7 @@
   - hash function은 일반적으로 나머지 연산자(%, mod)를 사용한다.
 - 탐색, 삽입, 삭제 모두 시간복잡도가 `O(1)`이라는 강력한 장점을 갖고 있지만 충돌이 발생할 수 있고 해시 함수의 성능에 영향을 많이 받으며 key-value 쌍이 아닌 자료구조에선 부적합할 수 있다는 단점을 갖고 있다.
 
-### 8-1. Set 함수
+### 8-2. Set 함수
 
 |연산자|결과|비고|
 |:-:|:-:|:-:|
@@ -309,13 +341,13 @@
 |`pop()`|||
 |`clear()`|||
 
-## 9. Dictionary(Mapping Type)
+## 9. dictionary(Mapping Type)
 
 - 임의의 값을 hashable한 값에 대응시키는 Mutable Type
   - Python 표준 Mapping Type은 dictionary만 있다.
 - Sequence 자료형과 달리 immutable 타입인 key를 index로 value에 접근할 수 있다.
 
-### 9-2. dictionary 함수
+### 9-1. dictionary 함수
 
 - 3.7 이상부터는 삽입 순서에 따른 순서를 보장하며 value가 바뀌었다고 순서가 바뀌진 않는다.
 - [3.9 이상부터는 `|`연산과 `|=`연산을 지원하며 dictionary를 서로 비교한 결과를 새로운 dictionary로 반환한다.](https://docs.python.org/3/library/stdtypes.html#mapping-types-dict)
@@ -342,7 +374,7 @@
 |`d.update(other)`|d에 대해 other의 내용을 업데이트|other은 dict의 선언 형태를 따라감|
 |`d.values()`|d의 값에 대한 dictview를 반환||
 
-### 9-3. dictview 함수
+### 9-2. dictview 함수
 
 - `dict.keys()`, `dict.values()`, `dict.items()`로 도출되는 자료형에 대한 함수
 
