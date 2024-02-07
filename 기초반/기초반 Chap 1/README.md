@@ -14,14 +14,14 @@
 - [2. VS Code 다루기](#2-vs-code-다루기)
   - [2-1. 확장 설치하기](#2-1-확장-설치하기)
   - [2-2. 무언가 실행하기](#2-2-무언가-실행하기)
-    -[2-2-1. .py, .ipynb](#2-2-1-py-ipynb)
+    - [2-2-1. .py, .ipynb](#2-2-1-py-ipynb)
   - [2-3. 디버깅](#2-3-디버깅)
     - [2-3-1. 중단점](#2-3-1-중단점)
     - [2-3-2. 변수](#2-3-2-변수)
     - [2-3-3. 조사식](#2-3-3-조사식)
     - [2-3-4. 호출스택](#2-3-4-호출스택)
 - [3. Variable(변수)](#3-variable변수)
-  -[3.1. Coding Convention](#3-1-coding-convention)
+  - [3.1. Coding Convention](#3-1-coding-convention)
 - [4. Constant(상수)](#4-constant상수)
 - [5. 세미콜론, Indentation](#5-세미콜론-indentation)
 - [6. Console I/O](#6-console-io)
@@ -49,7 +49,7 @@
 ### 1-1. Python 설치하기
 
 - <https://www.python.org/downloads> 에서 자신이 원하는 버전과 현재 자신의 OS에 맞춰 Python을 다운로드 할 수 있다.
-<img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/2024-1/%EA%B8%B0%EC%B4%88%EB%B0%98/%EA%B8%B0%EC%B4%88%EB%B0%98%20Chap%201/install%20python%201.png">
+<img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/2024-1/%EA%B8%B0%EC%B4%88%EB%B0%98/%EA%B8%B0%EC%B4%88%EB%B0%98%20Chap%201/install%20python%201.png"></img>
 - Add Python to PATH를 체크해놔야 나중에 환경변수를 편집하는 불상사가 발생하지 않는다.
 <img src = "https://github.com/Indigo-Coder-github/Python_Lecture/blob/2024-1/%EA%B8%B0%EC%B4%88%EB%B0%98/%EA%B8%B0%EC%B4%88%EB%B0%98%20Chap%201/install%20python%202.png">
 - for all users를 체크하는 것을 권장하는 편(관리자 권한이 부여됨)이다.
@@ -237,9 +237,8 @@
   - mode는 파일을 어떤 방식으로 접근할 지를 나타낸다. "r"은 읽기 모드, "w"는 쓰기 모드를 나타낸다. file 파라미터 다음에 왔다면 mode라는 이름을 명시하지 않아도 된다.
     - [다른 더 많은 모드도 있다.](https://dojang.io/mod/page/view.php?id=2327)
   - encoding은 파일을 읽고 쓰는 규약이다. Python은 UTF-8을 사용하며 그 외 cp949, euc-kr 등이 있다.
-- `read()`함수는 텍스트를 통째로 읽어오기 때문에 줄바꿈이 처리되야 할 자리가 개행문자( `\n`)로 처리된다. 이를 줄바꿈으로 처리하고 싶다면 `readlines()`함수, `readline()`함수를 사용해야 한다.
-  - `readlines()`함수는 각 줄을 요소로 하는 리스트를 반환한다.
-  - `readline()`함수는 한 줄만 읽어 반환한다. 때문에 반복문을 사용해야 한다.
+- `read()`와 `readlines()`의 요소에는 개행문자(`\n`) 등의 제어 문자가 모두 저장된다.
+- `readline()`함수는 한 줄만 읽어 반환한다. 때문에 반복문을 사용해야 한다.
 
 #### 7-1-1. with
 
@@ -263,6 +262,7 @@
 - Python은 파일 이름 자체가 모듈 이름이다.
 - `from`과 `import`를 통해 모듈을 호출한다.
   - 내가 만든 파일을 모듈로 `import`하려면 실행 파일과 모듈 파일이 같은 경로 상에 위치해야 한다.
+- `with`문에서 `as`를 사용하는 것처럼 모듈의 호출도 `as`를 사용해 별칭으로 호출할 수 있다.
 - 모듈을 순환 참조할 경우 오류를 일으킨다.
   - `a.py`에서 `b.py`를 `import`하고 `b.py`에서 `a.py`를 `import`할 수 없다.
   - 여러 파일에 프로그래밍 하는 것이 익숙치 않다면 순환 참조를 일으키는 실수를 범할 수 있어 주의가 필요하다.
