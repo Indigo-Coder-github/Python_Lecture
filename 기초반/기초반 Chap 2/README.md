@@ -251,51 +251,51 @@
 |연산자|결과|비고|
 |:-:| :-: |:-:|
 |`str.capitalize()`|첫 글자만 대문자로 바꿔 반환||
-|`str.casefold()`|||
-|`str.center(width, fillchar)`|str을 가운데에 놓고 str의 길이가 width가 될 때 까지 양옆으로 fillchar을 채워 반환||
+|`str.casefold()`|`str.lower()`와 동치이지만 좀 더 엄격한 변환을 거침(ex. 독일어 ß를 ss로)|자세한 사항은 Unicode 표준 문서를 참조할 것|
+|`str.center(width, fillchar)`|str을 가운데에 놓고 str의 길이가 width가 될 때까지 양옆으로 fillchar을 채워 반환||
 |`str.count(sub, start, end)`|str에서 sub의 갯수를 계산함</br>start와 end는 선택 사항으로 `str[start:end].count(sub)`와 동치||
 |`str.encode(encoding="utf-8", errors="strict")`|str을 byte로 인코딩</br>encoding은 현재 str의 인코딩 방식</br>errors는 [공식문서 참조](https://docs.python.org/3/library/stdtypes.html#str.encode)||
-|   `str.endswith(suffix, start, end)`   |str이 suffix로 끝난다면 True를, 아니면 False를 반환</br>찾고자 하는 것이 여러개라면 suffix는 tuple일 수 있음</br>start와 end는 선택 사항으로 slicing한 것으로 해석||
-|  `str.expandtabs()`  |||
-|     `str.find()`     |||
-|    `str.format()`    |formatting 메서드로 string은 {}을 갖고 있어야 함||
-|  `str.format_map()`  |||
-|    `str.index()`    |||
-|   `str.isalnum()`    |||
-|   `str.isalpha()`    |||
-|   `str.isascii()`    |||
-|  `str.isdecimal()`   |||
-|   `str.isdigit()`    |||
-| `str.isidentifier()` |||
-|   `str.islower()`    |||
-|  `str.isnumeric()`   |||
-| `str.isprintable()`  |||
-|   `str.isspace()`    |||
-|   `str.istitle()`    |||
-|   `str.isupper()`    |||
-|     `str.join()`     |||
-|    `str.ljust()`     |||
-|    `str.lower()`     |||
-|    `str.lstrip()`    |||
-|  `str.partition()`   |||
-| `str.removeprefix()` |||
-| `str.removesuffix()` |||
-|   `str.replace()`    |||
-|    `str.rfind()`     |||
-|    `str.rindex()`    |||
-|    `str.rjust()`     |||
-|  `str.rpartition()`  |||
-|    `str.rsplit()`    |||
-|    `str.rstrip()`    |||
-|    `str.split()`     |||
-|  `str.splitlines()`  |||
-|  `str.startswith()`  |||
-|    `str.strip()`     |||
-|   `str.sapcase()`    |||
-|    `str.title()`     |||
-|  `str.translate()`   |||
-|    `str.upper()`     |||
-|    `str.zfill()`     |||
+|`str.endswith(suffix, start, end)`|str이 suffix로 끝난다면 True를, 아니면 False를 반환</br>찾고자 하는 것이 여러개라면 suffix는 tuple일 수 있음</br>start와 end는 선택 사항으로 slicing한 것으로 해석||
+|`str.expandtabs(tabsize=8)`|str의 모든 tab을 tabsize만큼의 공백으로 바꿔 반환||
+|`str.find(sub, start, end)`|`str[start:end]`에서 처음 찾은 sub의 위치를 반환, 찾지 못했다면 -1을 반환|sub의 위치를 알고 있을 때 이 함수를 사용할 것을 권장하며 단순히 sub가 있는지 확인하려면 `in`을 사용할 것을 권장|
+|`str.format()`|formatting 메서드로 string은 {}을 갖고 있어야 함</br>채워야 할 각 필드는 위치 인수의 index나 키워드 인수의 이름이어야 하며 일치하는 인수의 문자열 값으로 대체된 str을 반환||
+|`str.index(sub, start, end)`|`find()`와 동치이지만 sub를 찾지 못하면 ValueError 발생||
+|`str.isalnum()`|str의 모든 문자들이 알파벳과 숫자로 이뤄졌다면 True를, 아니면 False를 반환|str이 `isalpha()`, `isdecimal()`, `isdigit()`, `isnumeric()` 중 하나 이상에 대해 True를 반환했다면 이 함수는 True를 반환|
+|`str.isalpha()`|str의 모든 문자들이 알파벳이면 True를, 아니면 False를 반환||
+|`str.isascii()`|str이 비었거나 모든 문자가 ASCII라면 `True`를, 아니면 `False`를 반환</br>Unicode로는 0000~007F에 해당함|3.7 이상부터 지원|
+|`str.isdecimal()`|str의 모든 문자들이 decimal이라면 `True`를, 아니면 `False`를 반환|Unicode에서 Nd 카테고리로 분류된 모든 문자가 해당|
+|`str.isdigit()`|str의 모든 문자들이 digit이라면 `True`를, 아니면 `False`를 반환|[True를 반환하는 digit의 Unicode는 위키백과를 참조할 것](https://en.wikipedia.org/wiki/Numerals_in_Unicode)|
+|`str.isidentifier()`|str이 변수명으로 사용할 수 있는 문자의 조합이라면 `True`를 반환|예약어 여부는 알 수 없음|
+|`str.islower()`|str의 적어도 한 문자가 대문자/소문자 체계이고 그 문자들이 모두 소문자이면 `True`를, 아니면 `False를 반환||
+|`str.isnumeric()`|str의 모든 문자가 숫자이면 `True`를, 아니면 `False`를 반환|[True를 반환하는 숫자의 Unicode는 위키백과를 참조할 것](https://en.wikipedia.org/wiki/Numerals_in_Unicode)|
+|`str.isprintable()`|str의 모든 문자가 출력할 수 있거나 비었다면 `True`를, 아니면 `False`를 반환|Unicode에서 공백을 제외한 separator나 other로 분류된 문자는 출력 불가능한 문자로 정의|
+|`str.isspace()`|str이 모두 공백으로 이뤄졌다면 `True`를, 아니면 `False`를 반환||
+|`str.istitle()`|str이 titlecase(각 어절이 대문자)면 `True`를, 아니면 `False`를 반환||
+|`str.isupper()`|str의 적어도 한 문자가 대문자/소문자 체계이고 그 문자들이 모두 대문자이면 `True`를, 아니면 `False`를 반환||
+|`str.join(iterable)`|iterable 요소를 str로 연결하여 반환</br>즉, str이 iterable 요소 사이의 구분자|iterable의 요소 중 string이 아닌 값이 있다면 TypeError 발생|
+|`str.ljust(width, fillchar=" ")`|str의 길이가 width가 될 때까지 fillchar로 오른쪽을 채움</br>width가 원래 str의 길이보다 작거나 같으면 str을 반환||
+|`str.lower()`|str을 모두 소문자로 변환해 반환||
+|`str.lstrip(chars)`|str에서 chars에 해당하는 앞의 문자들을 제거</br>chars를 주지 않거나 None인 경우 공백이 제거됨|chars를 접두사로 인식하지 않기 때문에 가능한 한 모든 문자의 조합을 제거|
+|`str.maketrans()`|`str.translate()`에서 사용할 수 있는 table을 반환하는 정적 메서드로 `str.maketrans()`로 호출</br>인자가 하나뿐이라면 글자-글자 쌍의 dict를 줘야하며 key에 해당하는 글자는 Unicode 10진 값으로 바뀌어 저장</br>인자가 둘뿐이라면 두 인자는 같은 길이의 문자열이어야 하며 첫 인자의 모든 문자가 두 번째 인자의 모든 문자에 대응하는 dict를 생성</br>인자가 셋뿐이라면 둘뿐일때와 마찬가지이며 세 번째 인자의 모든 문자는 None에 대응||
+|`str.partition(sep)`|str에 첫 번째로 나타난 sep를 기준으로 분할해 sep 전의 str, sep, sep 후의 str, 총 3개를 요소로 하는 tuple을 반환|sep를 찾지 못했다면 str과 두 개의 빈 string, 총 3개를 요소로 하는 tuple을 반환|
+|`str.removeprefix(prefix)`|str이 prefix로 시작하면 `str[len(prefix):]`를, 아니면 str을 반환||
+|`str.removesuffix(suffix)`|str이 suffix로 끝나면 `str[:len(suffix)]`를, 아니면 str을 반환||
+|`str.replace(old, new, count)`|str 내의 모든 old를 new로 바꿔 반환|count는 선택사항으로 처음으로 count만큼 발생한 old만 new로 바꿈|
+|`str.rfind(sub, start, end)`|`str[start:end]`에서 마지막으로 찾은 sub의 위치를 반환, 찾지 못했다면 -1을 반환||
+|`str.rindex()`|`rfind()`와 동치이지만 sub를 찾지 못하면 ValueError 발생||
+|`str.rjust(width, fillchar)`|str의 길이가 width가 될 때까지 fillchar로 왼쪽을 채움</br>width가 원래 str의 길이보다 작거나 같으면 str을 반환||
+|`str.rpartition(sep)`|str에 마지막로 나타난 sep를 기준으로 분할해 sep 전의 str, sep, sep 후의 str, 총 3개를 요소로 하는 tuple을 반환|sep를 찾지 못했다면 str과 두 개의 빈 string, 총 3개를 요소로 하는 tuple을 반환|
+|`str.rsplit(sep=None, maxsplit=-1)`|sep를 구분자로 하여 문자열 내 단어들의 리스트를 반환</br>sep가 주어지지 않거나 `None`인 경우 어떤 공백이든지 구분자로 간주</br>maxsplit이 주어지면 가장 오른쪽부터 maxsplit에 해당하는 횟수만큼 분할|오른쪽부터 분할한다는 점을 제외하면 `split()`과 동치|
+|`str.rstrip(chars)`|str에서 chars에 해당하는 뒤의 문자들을 제거</br>chars를 주지 않거나 None인 경우 공백이 제거됨|chars를 접미사로 인식하지 않기 때문에 가능한 한 모든 문자의 조합을 제거|
+|`str.split(sep=None, maxsplit=-1)`|sep를 구분자로 하여 문자열 내 단어들의 리스트를 반환</br>sep가 주어지지 않거나 `None`인 경우 연속된 공백을 단일 구분자로 간주, 앞 뒤의 모든 공백도 제거하여 반환</br>maxsplit이 주어지면 해당 횟수만큼 분할, 주어지지 않거나 -1인 경우 가능한 한 최대로 분할|sep는 복수의 문자일 수 있음</br>str 내 sep가 연속으로 나타나면 하나로 묶어 취급하지 않으며 구분자 사이에 빈 문자가 있는 것으로 간주|
+|`str.splitlines(keepends=False)`|str내 줄 바꿈을 없애고 이들을 요소로 하는 list를 반환</br>keepends가 주어졌거나 `True`인 경우 줄 바꿈 문자도 포함해 반환|[줄 바꿈에 해당하는 문자는 링크를 참조](https://docs.python.org/3/library/stdtypes.html#str.splitlines)|
+|`str.startswith(prefix, start, end)`|str이 prefix로 시작하면 `True`를, 아니면 `False`를 반환|찾으려는 prefix가 여러 개라면 tuple로 줄 수 있음</br>start와 end는 선택사항으로 start부터 end에 해당하는 index에 대해서만 검사|
+|`str.strip(chars)`|str의 선행/후행 문자에서 chars의 모든 문자를 제거해 반환|`None`을 주거나 아무것도 주지 않으면 공백을 제거함|
+|`str.swapcase()`|str의 모든 대문자/소문자를 소문자/대문자로 바꿔 반환||
+|`str.title()`|str의 title case(어절의 첫 번째 문자만 대문자)을 반환|'(apostrophe) 뒤의 첫 문자도 대문자로 변환|
+|`str.translate(table)`|str 내 각 문자열에 대해 주어진 table에 대응하는 문자열로 변환하여 반환|table은 일반적으로 dict나 Sequence Type|
+|`str.upper()`|str을 모두 대문자로 변환해 반환|str에 대문자/소문자 개념이 없는 문자열이 포함되있다면 `str.upper().isupper()`의 결과가 `False`일 수 있음|
+|`str.zfill(width)`|반환하는 문자열의 길이가 width가 될 때까지 str의 왼쪽에 0을 채워 반환|str에 부호가 포함되어 있다면 0은 부호 뒤부터 채워짐|
 
 ## 8. Set Type
 
@@ -326,20 +326,20 @@
 |`s.isdisjoint(t)`|s가 t와 공통 원소가 없다면 True를 반환|두 집합이 서로소 집합이기 때문에 교집합이 공집합임|
 |`s.issubset(t)`|s가 t의 부분집합이면 True 반환|`s<=t`, `s<t`와 동치|
 |`s.issuperset(t)`|s가 t의 상위집합이면 True 반환|`s>=t`, `s>t`와 동치|
-|`s.union(t)`|s와 t의 합집합을 반환|`s\t`와 동치|
+|`s.union(t)`|s와 t의 합집합을 반환|`s\|t`와 동치|
 |`s.intersection(t)`|s와 t의 교집합을 반환|`s&t`와 동치|
 |`s.difference(t)`|s와 t의 차집합을 반환|`s-t`와 동치|
 |`s.symmetric_difference(t)`|s와 t의 대칭차집합을 반환|`s^t`와 동치|
-|`copy()`|||
-|`update()`|||
-|`intersection_update()`|||
-|`difference_update()`|||
-|`symmetric_difference_update()`|||
-|`add()`|||
-|`remove()`|||
-|`discard()`|||
-|`pop()`|||
-|`clear()`|||
+|`s.copy()`|s의 얕은 복사를 반환||
+|`s.update(t)`|s와 t의 합집합으로 s를 업데이트|`s\|=t`와 동치|
+|`s.intersection_update(*t)`|s와 t의 교집합으로 s를 업데이트|`s&=t`와 동치|
+|`s.difference_update(*t)`|s와 t의 차집합으로 s를 업데이트|`s-=t`와 동치|
+|`s.symmetric_difference_update(t)`|s와 t에 모두 있는 원소 외의 원소들로 s를 업데이트 |`s^=t`와 동치|
+|`s.add(x)`|s에 x를 추가||
+|`s.remove(x)`|s에서 x를 제거|x가 없다면 KeyError가 발생|
+|`s.discard(x)`|s에 x가 있다면 x를 제거||
+|`s.pop()`|s에서 임의의 요소를 반환하고 제거|s가 비었다면 KeyError가 발생|
+|`s.clear()`|s의 모든 요소를 제거||
 
 ## 9. dictionary(Mapping Type)
 

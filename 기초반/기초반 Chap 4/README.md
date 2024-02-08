@@ -56,6 +56,7 @@
 
 - 공통의 속성과 행위를 가진 객체들을 추상화한 것
   - 다시 말해 instance를 정의한 코드이다.
+- `class ClassName`으로 정의한다.`
 
 ### 2-2. Object(객체)
 
@@ -90,6 +91,7 @@
 ### 2-3. Instance(인스턴스)
 
 - Class를 실체화한, 메모리에 실제로 할당된 객체
+- `instance_name = ClassName(arguments)`로 정의한다.
 
 #### 2-3-1. Constructor(생성자)
 
@@ -107,7 +109,7 @@
 - 객체에 저장된 자료의 특성과 이름을 정의한 것
   - instance의 상태와 정보를 나타낸다.
 - attribute, member variable, instance variable 등의 용어와 혼용된다.
-- `instance.attribute_name`형태로 호출한다.
+- class의 생성자에 `self.property_name = arg_name`으로 정의하며 `instance.property_name`으로 호출한다.
 
 #### 2-4-1. Class Variable(클래스 속성)
 
@@ -119,7 +121,7 @@
 
 - 객체의 행위를 정의한 것 혹은 객체에게 전달할 수 있는 메시지
   - operation, member function, instance method 등의 용어와 혼용된다.
-- `instance.method_name(params)`형태로 호출한다.
+- class 내 함수를 선언하고 `instance.method_name(args)`형태로 호출한다.
 
 #### 2-5-1. Static Method(정적 메서드)
 
