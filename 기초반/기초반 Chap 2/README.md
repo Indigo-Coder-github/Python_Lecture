@@ -69,7 +69,7 @@
 |`pow(x, y, mod=None)`|x의 y제곱|mod에 파라미터를 입력하면 나머지 반환</br>0의 0제곱은 1로 정의함|
 |`x**y`|x의 y제곱|0의 0제곱은 1로 정의함|
 
-#### 1-4-1. int, flaot 연산자
+#### 1-4-1. int, float 연산자
 
 - 더 많은 함수는 [math](https://docs.python.org/3/library/math.html#module-math) 모듈과 [cmath](https://docs.python.org/3/library/cmath.html#module-cmath)모듈에서 정의하고 있음
 
@@ -97,7 +97,7 @@
 
 - True, False라는 두 개의 상수로 구성된 타입
 - 내장 함수 `bool(value)`를 사용하면 value의 Boolean 타입을 반환해준다.
-  - `None`, `False`, `0`, `0.0`, `0j`, `''`, `()`, `[]`, `{}`, `set()`, `range(0)`은 False로, 나머지는 True로 반환한ㄷ.
+  - `None`, `False`, `0`, `0.0`, `0j`, `''`, `()`, `[]`, `{}`, `set()`, `range(0)`은 False로, 나머지는 True로 반환한다.
 - int형의 하위타입이기 때문에 False와 True가 각각 0과 1로 간주될 수 있지만 Boolean Type을 int Type 처럼 사용하고자 한다면 `int()`함수를 사용해 분명하게 변환할 것을 권장한다.
 
 ### 2-1. Boolean 연산자(논리 연산자)
@@ -114,7 +114,7 @@
 |:-:|:-:|:-:|
 |`x or y`|&|x가 참이면 x를, 아니면 y를 반환|
 |`x and y`|\||x가 거짓이면 x를, 아니면 y를 반환|
-|`not x`|~|x가 거짓이면 `True`를, 아니면 False를 반환|
+|`not x`|~|x가 거짓이면 `True`를, 아니면 `False`를 반환|
 
 ### 2-2. 비교 연산자
 
@@ -220,7 +220,7 @@
 
 - 일반적으로 서로 무관한 데이터를 저장하는 Immutable Sequence Type
   - immutable하다는 것은 내부의 값이 수정될 수 없는 것을 의미한다.
-- tuple을 선언하는 것은 괄호가 아니고 comma임이다.
+- tuple을 선언하는 것은 괄호가 아니고 comma이다.
   - 즉, 빈 tuple을 생성하는 경우나 구문의 모호성을 피하기 위한 경우(함수 등 괄호를 사용하는 구문들에서)를 제외하면 tuple을 나타내기 위해 괄호를 사용하는 것은 선택사항이다.
 
 ## 6. range
@@ -236,6 +236,7 @@
   - `start`부터 `stop`까지 `step`을 0부터 증가시키면서 `start*step`을 반환한다.
 - sequence type이기 때문에 [Sequence Type 함수](https://github.com/Indigo-Coder-github/Python_Lecture/tree/main/%EC%B4%88%EA%B8%89%EB%B0%98%205%2C%206%EC%A3%BC%EC%B0%A8#sequence-type-%ED%95%A8%EC%88%98), [slicing](https://github.com/Indigo-Coder-github/Python_Lecture/tree/main/%EC%B4%88%EA%B8%89%EB%B0%98%205%2C%206%EC%A3%BC%EC%B0%A8#slicing), 음수를 통한 indexing 모두 지원한다.
   - 단, slicing과 음수를 통한 indexing은 3.2 이상부터 지원한다.
+  - 3.3 이상부터는 결과값에 대한 `==`과 `!=`연산도 지원한다.
 
 ## 7. string (Text Sequence Type)
 
@@ -275,7 +276,7 @@
 |`str.join(iterable)`|iterable 요소를 str로 연결하여 반환</br>즉, str이 iterable 요소 사이의 구분자|iterable의 요소 중 string이 아닌 값이 있다면 TypeError 발생|
 |`str.ljust(width, fillchar=" ")`|str의 길이가 width가 될 때까지 fillchar로 오른쪽을 채움</br>width가 원래 str의 길이보다 작거나 같으면 str을 반환||
 |`str.lower()`|str을 모두 소문자로 변환해 반환||
-|`str.lstrip(chars)`|str에서 chars에 해당하는 앞의 문자들을 제거</br>chars를 주지 않거나 None인 경우 공백이 제거됨|chars를 접두사로 인식하지 않기 때문에 가능한 한 모든 문자의 조합을 제거|
+|`str.lstrip(chars)`|chars에 해당하는 문자들이 발견되지 않을 때까지 str의 앞부분부터 제거</br>chars를 주지 않거나 None인 경우 공백이 제거됨|chars를 접두사로 인식하지 않음|
 |`str.maketrans()`|`str.translate()`에서 사용할 수 있는 table을 반환하는 정적 메서드로 `str.maketrans()`로 호출</br>인자가 하나뿐이라면 글자-글자 쌍의 dict를 줘야하며 key에 해당하는 글자는 Unicode 10진 값으로 바뀌어 저장</br>인자가 둘뿐이라면 두 인자는 같은 길이의 문자열이어야 하며 첫 인자의 모든 문자가 두 번째 인자의 모든 문자에 대응하는 dict를 생성</br>인자가 셋뿐이라면 둘뿐일때와 마찬가지이며 세 번째 인자의 모든 문자는 None에 대응||
 |`str.partition(sep)`|str에 첫 번째로 나타난 sep를 기준으로 분할해 sep 전의 str, sep, sep 후의 str, 총 3개를 요소로 하는 tuple을 반환|sep를 찾지 못했다면 str과 두 개의 빈 string, 총 3개를 요소로 하는 tuple을 반환|
 |`str.removeprefix(prefix)`|str이 prefix로 시작하면 `str[len(prefix):]`를, 아니면 str을 반환||
@@ -286,7 +287,7 @@
 |`str.rjust(width, fillchar)`|str의 길이가 width가 될 때까지 fillchar로 왼쪽을 채움</br>width가 원래 str의 길이보다 작거나 같으면 str을 반환||
 |`str.rpartition(sep)`|str에 마지막로 나타난 sep를 기준으로 분할해 sep 전의 str, sep, sep 후의 str, 총 3개를 요소로 하는 tuple을 반환|sep를 찾지 못했다면 str과 두 개의 빈 string, 총 3개를 요소로 하는 tuple을 반환|
 |`str.rsplit(sep=None, maxsplit=-1)`|sep를 구분자로 하여 문자열 내 단어들의 리스트를 반환</br>sep가 주어지지 않거나 `None`인 경우 어떤 공백이든지 구분자로 간주</br>maxsplit이 주어지면 가장 오른쪽부터 maxsplit에 해당하는 횟수만큼 분할|오른쪽부터 분할한다는 점을 제외하면 `split()`과 동치|
-|`str.rstrip(chars)`|str에서 chars에 해당하는 뒤의 문자들을 제거</br>chars를 주지 않거나 None인 경우 공백이 제거됨|chars를 접미사로 인식하지 않기 때문에 가능한 한 모든 문자의 조합을 제거|
+|`str.rstrip(chars)`|chars에 해당하는 문자들이 발견되지 않을 때까지 str의 뒷부분부터 제거</br>chars를 주지 않거나 None인 경우 공백이 제거됨|chars를 접미사로 인식하지 않음|
 |`str.split(sep=None, maxsplit=-1)`|sep를 구분자로 하여 문자열 내 단어들의 리스트를 반환</br>sep가 주어지지 않거나 `None`인 경우 연속된 공백을 단일 구분자로 간주, 앞 뒤의 모든 공백도 제거하여 반환</br>maxsplit이 주어지면 해당 횟수만큼 분할, 주어지지 않거나 -1인 경우 가능한 한 최대로 분할|sep는 복수의 문자일 수 있음</br>str 내 sep가 연속으로 나타나면 하나로 묶어 취급하지 않으며 구분자 사이에 빈 문자가 있는 것으로 간주|
 |`str.splitlines(keepends=False)`|str내 줄 바꿈을 없애고 이들을 요소로 하는 list를 반환</br>keepends가 주어졌거나 `True`인 경우 줄 바꿈 문자도 포함해 반환|[줄 바꿈에 해당하는 문자는 링크를 참조](https://docs.python.org/3/library/stdtypes.html#str.splitlines)|
 |`str.startswith(prefix, start, end)`|str이 prefix로 시작하면 `True`를, 아니면 `False`를 반환|찾으려는 prefix가 여러 개라면 tuple로 줄 수 있음</br>start와 end는 선택사항으로 start부터 end에 해당하는 index에 대해서만 검사|
@@ -301,7 +302,7 @@
 
 - hashable한 요소들로 구성된 순서가 없는 집합
   - Set와 Dictionary Type은 Sequence Type이 아니다! collection이라는 타입에 Sequence, Set, Dictionary가 종속된다.
-  - set는 Mutable하며 immutable한 set인 frozenset을 지원한다.
+  - set는 mutable하며 immutable한 set인 frozenset을 지원한다.
 - 일반적으로 sequence의 중복요소 제거, 교집합이나 합집합 등의 수학적 연산에 사용한다.
   - 수학에서 말하는 집합을 지원하는 자료형이라고 생각하면 된다.
 - 다른 집합형 자료형들과 마찬가지로 `x in set`, `len(set)`, `for x in set`등을 지원한다.

@@ -172,7 +172,7 @@
 - Python은 공식적으로 접근 제한자를 지원하지 않으며 창시자인 귀도 반 로섬도 [이에 대해 지원하지 않을 것이라고 정확히 얘기했다.](https://stackoverflow.com/questions/7456807/should-i-use-name-mangling-in-python)
   - 즉, Python에서 모든 속성과 메서드는 public이다.
     - 이 때문에 혹자는 Python을 객체지향 언어로 인정하지 않으나 [캡슐화는 단지 객체지향의 한 특성일뿐 Python은 객체지향 언어가 맞다.](https://stackoverflow.com/questions/3325343/why-is-python-not-fully-object-oriented)
-  - [PEP8에서는](https://peps.python.org/pep-0008/#method-names-and-instance-variables) 이름 앞에`_`를 붙여 non-public 메서드 혹은 속성임을 알려줄 수 있고 서브 클래스의 이름 충돌을 피하기 위해 `__`를 이름 앞에 붙일 수 있다고 설명한다.
+  - [PEP8에서는](https://peps.python.org/pep-0008/#method-names-and-instance-variables) 이름 앞에 `_`를 붙여 non-public 메서드 혹은 속성임을 알려줄 수 있고 서브 클래스의 이름 충돌을 피하기 위해 `__`를 이름 앞에 붙일 수 있다고 설명한다.
     - 이름 앞에 `__`을 붙여 해당 요소를 private로 설정할 수 있다고 알려져 있으나 실제로 코드를 실행하면 해당 요소를 찾을 수 없다는 예외가 발생한다.
       - [내부적으로 `InstanceName._ClassName__AttributeName`, `InstanceName._ClassName__MethodName`](https://docs.python.org/3.11/reference/expressions.html?highlight=mangling#index-5)라는 이름으로 바뀌기 때문에 해당 형식에 맞춰 강제로 꺼낼 수 있다.
       - 이를 name mangling이라고 한다.
