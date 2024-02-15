@@ -7,7 +7,7 @@
   - [1-2. float](#1-2-float)
   - [1-3. complex](#1-3-complex)
   - [1-4. 연산자](#1-4-연산자)
-    - [1-4-1. int, float 연산자](#1-4-1-int-flaot-연산자)
+    - [1-4-1. int, float 연산자](#1-4-1-int-float-연산자)
     - [1-4-2. 비트 연산자](#1-4-2-비트-연산자)
 - [2. Boolean Type](#2-boolean-type)
   - [2-1. Boolean 연산자](#2-1-boolean-연산자논리-연산자)
