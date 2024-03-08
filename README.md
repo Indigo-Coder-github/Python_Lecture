@@ -14,7 +14,7 @@
 ### 기초반
 
 - 기초반의 각 폴더의 READ.md가 강의자료, example.ipynb 파일은 예제코드, test.ipynb가 실습파일
-- Participants:
+- Participants: [Pogjunan](https://github.com/Pogjunan)
 
 ### 응용반
 
@@ -22,5 +22,5 @@
 
 #### [Korean_News_Crawler](https://github.com/Indigo-Coder-github/Korean_News_Crawler)
 
-- Participants: [@Indigo_Coder](https://github.com/Indigo-Coder-github)
+- Participants: [Indigo_Coder](https://github.com/Indigo-Coder-github)
 - 한국 10대 일간지 크롤링을 위한 Python Interface를 제공하는 라이브러리
