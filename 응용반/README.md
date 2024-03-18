@@ -40,4 +40,4 @@
 
 ## Github Flow
 
-![Github Flow.png](./Git%20Flow.png)
+![Github Flow.png](./Github%20Flow.png)
