@@ -24,3 +24,13 @@
 
 - Participants: [Indigo_Coder](https://github.com/Indigo-Coder-github)
 - 한국 10대 일간지 크롤링을 위한 Python Interface를 제공하는 라이브러리
+
+#### []()
+
+- Participants: [SY](https://github.com/SY191)
+- 자동화된 악성 바이너리 코드 탐지의 XAI 접목을 통한 결과해석 제공
+
+#### [burnout_text_analysis](https://github.com/ahnyunju/burnout_text_analysis)
+
+- Participants: [Ahn yunju](https://github.com/ahnyunju)
+- Blinds 텍스트 데이터를 통한 사회 초년생 번아웃 탐구
