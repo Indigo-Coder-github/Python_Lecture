@@ -34,3 +34,13 @@
 
 - Participants: [Ahn yunju](https://github.com/ahnyunju)
 - Blinds 텍스트 데이터를 통한 사회 초년생 번아웃 탐구
+
+#### []()
+
+- Participants: [hyunso0](https://github.com/hyunso0)
+- 
+
+#### []()
+
+- Participants: [SY](https://github.com/)
+- 
