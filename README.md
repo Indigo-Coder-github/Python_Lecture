@@ -44,3 +44,8 @@
 
 - Participants: [injune](https://github.com/poweradezero)
 - 
+
+#### [rate-your-music](https://github.com/choyounghwi717/rate-your-music)
+
+- Participants: [halfmind](https://github.com/choyounghwi717)
+- rate-your-music의 차트를 분석
