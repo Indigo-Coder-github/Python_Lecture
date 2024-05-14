@@ -35,10 +35,10 @@
 - Participants: [Ahn yunju](https://github.com/ahnyunju)
 - Blinds 텍스트 데이터를 통한 사회 초년생 번아웃 탐구
 
-#### [~repository will be created~]()
+#### [E-commerce](https://github.com/hyunso0/E-commerce)
 
 - Participants: [hyunso0](https://github.com/hyunso0)
-- 
+- E-커머스 데이터셋 분석
 
 #### [~repository will be created~]()
 
