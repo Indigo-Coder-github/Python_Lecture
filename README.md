@@ -32,7 +32,7 @@
 
 #### [burnout_text_analysis](https://github.com/ahnyunju/burnout_text_analysis)
 
-- Participants: [Ahn yunju](https://github.com/ahnyunju)
+- Participants: [Ahn yunju](https://github.com/yunju58)
 - Blinds 텍스트 데이터를 통한 사회 초년생 번아웃 탐구
 
 #### [E-commerce](https://github.com/hyunso0/E-commerce)
