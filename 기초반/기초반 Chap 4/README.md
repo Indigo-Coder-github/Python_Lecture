@@ -5,7 +5,7 @@
 - [1. Function(함수)](#1-function함수)
 - [2. Objected Oriented Programming](#2-objected-oriented-programming-oop-객체지향-프로그래밍)
   - [2-1. Class(클래스)](#2-1-class클래스)
-  = [2-2. Object(객체)](#2-2-object객체)
+  - [2-2. Object(객체)](#2-2-object객체)
     - [2-2-1. Immutable Object](#2-2-1-immutable-object)
     - [2-2-2. Mutable Object](#2-2-2-mutable-object)
       - [shallow copy, deep copy(얕은 복사, 깊은 복사)](#shallow-copy-deep-copy얕은-복사-깊은-복사)
