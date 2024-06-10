@@ -49,3 +49,9 @@
 
 - Participants: [halfmind](https://github.com/choyounghwi717)
 - rate-your-music의 차트를 분석
+
+## 3기
+
+- 2024학년도 2학기
+- 기초반 명, 응용반 명
+- 자료구조와 알고리즘 명, 자연어처리 명
