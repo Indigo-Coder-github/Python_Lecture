@@ -52,6 +52,22 @@
 |`s.index(x,i,j)`| s에서 첫 번째로 나타나는 x를 찾아 그 index를 반환</br>i와 j는 선택사항이며 설정하면 i번째부터 j-1번째까지에서 탐색|x를 찾지 못했다면 ValueError 발생</br>`s[i:j].index(x)`와 동치같지만 slicing 한 위치를 기준으로 index를 반환|
 |`s.count(x)`|s에서 x가 나타난 횟수를 반환||
 
+```python
+test_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+print("Does 4 exit in test_list?", 4 in test_list)
+print("Deos 4 not exit in test_list?", 4 not in test_list)
+print(test_list + test_list)
+print(test_list * 2)
+print("The length of test_list is ", len(test_list))
+print("The min value in test_list is ", min(test_list))
+print("The max value in test_list is ", max(test_list))
+print("The index of 3 in test_list is ", test_list.index(3))
+print("In range of 1 to 5, the index of 3 in range of test_list is", test_list.index(3, 1, 5))
+print("The index of 3 in range of test_list[1:5] is", test_list[1:5].index(3))
+print("The count of 3 in test_list is ", test_list.count(3))
+```
+
 ### 1-3. slicing
 
 - Ada, Go, Python 등 일부 언어에서 지원하는 list에 대한 독특한 기능
@@ -61,9 +77,36 @@
     - -0은 0으로 취급하기 때문에 가장 마지막의 요소는 -1부터 시작한다.
 - 예제코드를 보는 것이 이해하기 쉽다.
 
+```python
+test_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+print("test_list[4] = ", test_list[4])
+print("test_list[-4] = ", test_list[-4])
+print("test_list[:4] = ", test_list[:4])
+print("test_list[:-4] = ", test_list[:-4])
+print("test_list[4:] = ", test_list[4:])
+print("test_list[-4:] = ", test_list[-4:])
+print("test_list[2:5] = ", test_list[2:5])
+print("test_list[::2] = ", test_list[::2])
+print("test_list[1::2] = ", test_list[1::2])
+print("test_list[::-1] = ", test_list[::-1])
+```
+
 ## 2. list
 
 - 일반적으로 비슷한 요소를 저장하는 Mutable Sequence Type
+
+```python
+using_bracket_pair = []
+using_bracket_comma = ["a", "b", "c"]
+using_list_comprehension = [x for x in [1,2,3]]
+
+str_to_list = list("abc") #["a", "b", "c"]
+tuple_to_list = list((1, 2, 3)) #[1, 2, 3]
+blank_list = list() #[]
+
+print(str_to_list)
+```
 
 ### 2-1. list 함수
 
@@ -87,6 +130,33 @@
 |`s.reverse()`|s를 뒤집은 값으로 바꿈||
 |`s.sort()`|s를 정렬한 list로 바꿈|정렬한 list를 다른 변수에 할당하려면 `t=s.sorted()`를 사용할 것|
 
+```python
+test_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+test_list[3] = "three"
+print(test_list)
+test_list[4:6] = ["four", "five"]
+print(test_list)
+del test_list[:2]
+print(test_list)
+test_list.append(10)
+print(test_list)
+test_list.extend([11, 12])
+print(test_list)
+test_list *= 2
+print(test_list)
+test_list.insert(0, "one")
+print(test_list)
+test_list.pop()
+print(test_list)
+test_list.pop(-3)
+print(test_list)
+test_list.remove("three")
+print(test_list)
+test_list.reverse()
+print(test_list)
+```
+
 ### 2-2. list comprehension(리스트 표현식)
 
 - list를 생성할 때 식, for문, if문을 한 문장으로 묶어 생성하는 것
@@ -94,6 +164,22 @@
 - `[variable_expression for variable in iterator if condition]` 혹은 `list(expression for variable in iterator if condition)`형태로 표현할 수 있다.
   - if-else문을 사용하려면 `[variable_expression if condition else statement for variable in iterator]` 형태로 작성한다.
 - 예제코드를 보는 것이 이해하기 쉽다.
+
+```python
+comprehension_list = [x for x in range(20)]
+print(comprehension_list)
+
+even_list = [x for x in range(20) if x % 2 == 0]
+print(even_list)
+
+multiple_of_6_list = [x for x in range(20) if x % 2 == 0 if x % 3 == 0]
+#[x for x in range(20) if x % 6 == 0]
+#[x for x in range(20) if x % 2 == 0 and x % 3 == 0]
+print(multiple_of_6_list)
+
+multiple_of_6_list = [True if x % 6 == 0 else False for x in range(20)]
+print(multiple_of_6_list)
+```
 
 ### 2-3. [list == array?](https://stackoverflow.com/questions/176011/python-list-vs-array-when-to-use)
 
@@ -107,12 +193,34 @@
 - `[[] for i in range(x)]`와 `[[]] * x`는 다르게 작동함
   - Sequence Type의 `*`연산자는 복사가 되는 것이 아닌 여러 번 참조하는 연산자이다.
 
+```python
+comprehension_2d_list = [[x for x in range(5)] for _ in range(5)]
+multiple_2d_list = [[x for x in range(5)]] * 5
+print(comprehension_2d_list)
+print(multiple_2d_list)
+
+comprehension_2d_list[0][0] = "Zero"
+multiple_2d_list[0][0] = "Zero"
+print(comprehension_2d_list)
+print(multiple_2d_list)
+```
+
 ## 3. tuple
 
 - 일반적으로 서로 무관한 데이터를 저장하는 Immutable Sequence Type
   - immutable하다는 것은 내부의 값이 수정될 수 없는 것을 의미한다.
 - tuple을 선언하는 것은 괄호가 아니고 comma이다.
   - 즉, 빈 tuple을 생성하는 경우나 구문의 모호성을 피하기 위한 경우(함수 등 괄호를 사용하는 구문들에서)를 제외하면 tuple을 나타내기 위해 괄호를 사용하는 것은 선택사항이다.
+
+```python
+using_parenthese_pair = ()
+using_trailing_comma = "a",
+using_trailing_comma = ("a",)
+using_commas_itmes = "a","b","c"
+using_commas_itmes = ("a","b","c")
+#생성자의 매개변수는 iterable한 자료형이라면 무관함
+using_constructor = tuple("tuple") #("t","u","p","l","e")
+```
 
 ## 4. range
 
@@ -129,6 +237,14 @@
   - 단, slicing과 음수를 통한 indexing은 3.2 이상부터 지원한다.
   - 3.3 이상부터는 결과값에 대한 `==`과 `!=`연산도 지원한다.
 
+```python
+print(list(range(10)))
+print(list(range(1, 10)))
+print(list(range(1, 10, 2)))
+print(list(range(10, 1, -1)))
+print(list(range(10, 1, -2)))
+```
+
 ## 5. string (Text Sequence Type)
 
 - 문자열을 담는 Immutable Sequence Type
@@ -136,9 +252,32 @@
 - Python에서 문자열을 선언할 때 문자열 내 따옴표로 문자열을 묶는 것을 피해야 하는 경우만 제외하면 큰 따옴표와 작은 따옴표의 차이는 없으며 [개인의 취향에 따라 사용하거나 관습을 따른다.](https://stackoverflow.com/questions/56011/single-quotes-vs-double-quotes-in-python)
 - 세 개의 따옴표로 묶으면 문자열의 줄바꿈을 허용한다.
 
+```python
+single_quote = 'This allows "double quote".'
+double_quote = "This allows 'single quote'."
+triple_single_quote = '''Triple single quote'''
+triple_double_quote = """Triple doulbe quote"""
+```
+
 ### 5-1. string 함수
 
 - Sequence Type의 함수도 사용할 수 있다.
+
+```python
+test_string = "0123456789"
+
+print("Does 4 exit in test_string?", "4" in test_string)
+print("Deos 4 not exit in test_string?", "4" not in test_string)
+print(test_string + test_string)
+print(test_string * 2)
+print("The length of test_string is ", len(test_string))
+print("The min value in test_string is ", min(test_string))
+print("The max value in test_string is ", max(test_string))
+print("The index of 3 in test_string is ", test_string.index("3"))
+print("In range of 1 to 5, the index of 3 in range of test_string is", test_string.index("3", 1, 5))
+print("The index of 3 in range of test_string[1:5] is", test_string[1:5].index("3"))
+print("The count of 3 in test_string is ", test_string.count("3"))
+```
 
 |연산자|결과|비고|
 |:-:| :-: |:-:|
@@ -189,6 +328,46 @@
 |`str.upper()`|str을 모두 대문자로 변환해 반환|str에 대문자/소문자 개념이 없는 문자열이 포함되있다면 `str.upper().isupper()`의 결과가 `False`일 수 있음|
 |`str.zfill(width)`|반환하는 문자열의 길이가 width가 될 때까지 str의 왼쪽에 0을 채워 반환|str에 부호가 포함되어 있다면 0은 부호 뒤부터 채워짐|
 
+```python
+test_string = "i have a pen.\ti have an apple."
+
+print(test_string.capitalize())
+print(test_string.casefold())
+print(test_string.center(20, "-"))
+print(test_string.count("a"))
+print(test_string.endswith("apple."))
+print(test_string.expandtabs(4))
+print(test_string.find("a"))
+print("I have a pen. I have an apple. {}".format(test_string))
+print(test_string.index("a"))
+print(test_string.isalnum(), test_string.isalpha(), test_string.isascii(), test_string.isdecimal(), test_string.isdigit(),
+      test_string.isidentifier(), test_string.islower(), test_string.isnumeric(), test_string.isprintable(), test_string.isspace(),
+      test_string.istitle(), test_string.isupper())
+print(".".join(test_string))
+print(test_string.ljust(40, "-"))
+print(test_string.lower())
+print(test_string.lstrip("i have"))
+print(test_string.partition("pen."))
+print(test_string.removeprefix("i have"))
+print(test_string.removesuffix("apple."))
+print(test_string.replace("pen.", "pineapple."))
+print(test_string.rfind("a"))
+print(test_string.rindex("a"))
+print(test_string.rjust(40, "-"))
+print(test_string.rpartition("pen."))
+print(test_string.rsplit(" "))
+print(test_string.rstrip(".elppa n"))
+print(test_string.split("\t"))
+print(test_string.splitlines())
+print(test_string.startswith("i have"))
+print(test_string.strip("i have"))
+print(test_string.swapcase())
+print(test_string.title())
+print(test_string.translate(str.maketrans("i", "I")))
+print(test_string.upper())
+print(test_string.zfill(40))
+```
+
 ## 6. Set Type
 
 - hashable한 요소들로 구성된 순서가 없는 집합
@@ -198,6 +377,14 @@
   - 수학에서 말하는 집합을 지원하는 자료형이라고 생각하면 된다.
 - 다른 집합형 자료형들과 마찬가지로 `x in set`, `len(set)`, `for x in set`등을 지원한다.
   - 삽입 순서에 대한 위치를 기록하지 않기 때문에 indexing, slicing 등은 할 수 없다.
+
+```python
+prime_set = {2,3,5,7,11}
+even_set_with_comprehension = {i for i in range(20) if i%2 == 0}
+#빈 set는 {}로 선언할 수 없음
+#{}로 선언하면 빈 dictionary로 인식
+empty_set = set()
+```
 
 ### 6-1. Hash Table(Hashmap, Hashable)
 
@@ -233,11 +420,49 @@
 |`s.pop()`|s에서 임의의 요소를 반환하고 제거|s가 비었다면 KeyError가 발생|
 |`s.clear()`|s의 모든 요소를 제거||
 
+```python
+print(len(test_set))
+print(4 in test_set)
+print(4 not in test_set)
+print(test_set.isdisjoint({10, 11, 12}))
+print(test_set.issubset({0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}))
+print(test_set.issuperset({0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}))
+print(test_set.union({10, 11, 12}))
+print(test_set.intersection({7, 8, 9, 10, 11, 12}))
+print(test_set.difference({10, 11, 12}))
+print(test_set.symmetric_difference({9, 10, 11, 12}))
+test_set.update({10, 11, 12})
+print(test_set)
+test_set.intersection_update({7, 8, 9, 10, 11, 12})
+print(test_set)
+test_set.difference_update({10, 11, 12})
+print(test_set)
+test_set.symmetric_difference_update({9, 10, 11, 12})
+print(test_set)
+test_set.add(11)
+print(test_set)
+test_set.remove(10)
+print(test_set)
+test_set.discard(9)
+print(test_set)
+test_set.pop()
+print(test_set)
+test_set.clear()
+print(test_set)
+```
+
 ## 7. dictionary(Mapping Type)
 
 - 임의의 값을 hashable한 값에 대응시키는 Mutable Type
   - Python 표준 Mapping Type은 dictionary만 있다.
 - Sequence 자료형과 달리 immutable 타입인 key를 index로 value에 접근할 수 있다.
+
+```python
+key_value_pair_braces = {"Korea":"Seoul", "USA":"Washington D.C.", "Japan":"Tokyo", "China":"Beijing"}
+dict_comprehension = {x: x**2 for x in range(15)}
+dict_constructor_1 = dict([("Korea", "Seoul"), ("USA", "Washington D.C."), ("Japan", "Tokyo"), ("China", "Beijing")])
+dict_constructor_2 = dict(Korea="seoul", USA="Washington D.C.", Japan="Tokyo", China="Beijing")
+```
 
 ### 7-1. dictionary 함수
 
@@ -266,6 +491,36 @@
 |`d.update(other)`|d에 대해 other의 내용을 업데이트|other은 dict의 선언 형태를 따라감|
 |`d.values()`|d의 값에 대한 dictview를 반환||
 
+```python
+test_dict = {
+    "Korea": "Seoul",
+    "USA": "Washington D.C.",
+    "Japan": "Tokyo",
+    "China": "Beijing",
+    "Germany": "Berlin",
+    "France": "Paris",
+    "Italy": "Rome",
+    "Brazil": "Brasilia",
+    "India": "New Delhi",
+    "Australia": "Canberra"
+}
+
+print(list(test_dict))
+print(len(test_dict))
+print(test_dict["Korea"])
+test_dict["Korea"] = "Busan"
+print(test_dict)
+del test_dict["Korea"]
+print(test_dict)
+print("Korea" in test_dict)
+print("Korea" not in test_dict)
+print(test_dict.get("Korea", "Given is not in test_dict."))
+print(test_dict.items())
+print(test_dict.keys())
+print(test_dict.pop("India"))
+print(test_dict.values())
+```
+
 ### 7-2. dictview 함수
 
 - `dict.keys()`, `dict.values()`, `dict.items()`로 도출되는 자료형에 대한 함수
@@ -284,12 +539,32 @@
 - Sequence Type의 요소를 순서대로 순회하는 구문
 - `for *variables in *sequences: code_block`형태로 사용한다.
 
+```python
+for country in ["Italy", "France", "Germany", "England"]:
+    print(country)
+
+for country in ("Italy", "France", "Germany", "England"):
+    print(country)
+
+for i in range(5):
+    print(i)
+```
+
 ### 8-2. while
 
 - 조건식을 만족할 동안 계속 반복하는 구문
 - `while condition: code_block`형태로 사용하며 condition이 False가 될 때까지 `code_block`을 실행한다.
   - condition을 True로 설정하면 항상 참이므로 무한 루프 상태를 유지한다.
     - 무한루프는 상황에 따라 필요할 수도(ex. 기기 간 통신 등 상황 유지가 필요한 경우), 의도치 않은 상황일 수도(ex. 잘못된 조건으로 인한 무한 출력 등) 있다.
+
+```python
+cnt = 0
+while cnt < 5:
+    print(cnt)
+    cnt += 1
+while True:
+    print(1)
+```
 
 ### 8-3. break, else, pass, continue
 
@@ -299,3 +574,30 @@
 - `pass`문은 실행할 코드가 없음을 나타냄
   - 반복문 뿐 아니라 코드블록이 있어야 할 곳을 비워놓기 위한 목적이라면 어디든 사용할 수 있다.
 - `continue`문은 현재의 상태를 무시하고 반복문의 시작 위치로 돌아가 다음 상태로 진입함
+
+```python
+for i in range(5):
+    if i == 4:
+        print("i == 4 and break")
+        break
+    else: print(i)
+
+for i in range(5):
+    if i == 4:
+        print("break is occured.")
+        break
+else:
+    print("break is not occured.")
+
+for i in range(5):
+    if i == 5:
+        print("break is occured.")
+        break
+else:
+    print("break is not occured.")
+
+for i in range(10):
+    if i % 2 == 0:
+        print(i)
+    else: continue
+```

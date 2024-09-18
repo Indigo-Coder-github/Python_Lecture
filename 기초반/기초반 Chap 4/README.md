@@ -3,15 +3,15 @@
 ## TOC
 
 - [1. Function(함수)](#1-function함수)
-- [1. Console I/O](#1-console-io)
-  - [1-1. Console Input](#1-1-console-input)
-  - [1-2. Console Output](#1-2-console-output)
-    - [1-2-1. format](#1-2-1-format)
-- [2. File I/O](#2-file-io)
-  - [2-1. File Input](#2-1-file-input)
-    - [2-1-1. with](#2-1-1-with)
-  - [2-2. File Output](#2-2-file-output)
-- [3. Module(모듈)](#3-module모듈)
+- [2. Console I/O](#2-console-io)
+  - [2-1. Console Input](#2-1-console-input)
+  - [2-2. Console Output](#2-2-console-output)
+    - [2-2-1. format](#2-2-1-format)
+- [3. File I/O](#3-file-io)
+  - [3-1. File Input](#3-1-file-input)
+    - [3-1-1. with](#3-1-1-with)
+  - [3-2. File Output](#3-2-file-output)
+- [4. Module(모듈)](#4-module모듈)
 
 ## 1. Function(함수)
 
