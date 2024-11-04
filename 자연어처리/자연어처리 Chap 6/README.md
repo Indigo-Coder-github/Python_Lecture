@@ -82,11 +82,11 @@ $$
 - 각각의 head에는 Q, K, V에 대한 가중치 행렬이 있고 입력 벡터에 가중치 행렬을 곱해 Q, K, V를 생성 및 업데이트
   - 이후 concat layer도 이 layer에 대한 가중치 행렬이 있고 업데이트 되며 다음과 같은 수식으로 표현
 
-$$
+$$\begin{align}
 MultiHead(Q,K,V)=Concat(head_1,\cdots,head_h)W^O\\
 where\, head_i=Attention(QW_i^Q,KW_i^K,VW_i^V)\\
 W_i^Q \in \mathbb{R}^{d_{model}\times d_k}, W_i^K \in \mathbb{R}^{d_{model}\times d_k},W_i^V \in \mathbb{R}^{d_{model}\times d_v}, W^O \in \mathbb{R}^{hd_v\times d_{model}}
-$$
+\end{align}$$
 
 ##### Encoder의 Multi-Head Self Attention
 
@@ -180,7 +180,8 @@ $$
   - $\beta_1=0.9$, $\beta_2=0.98$,$\epsilon=10^{-9}$
 - 학습률은 아래와 같은 공식
   - warmup_steps는 4000
-$$ lrate={1\over \sqrt {d_{model}}}min(step\_num^{-0.5},step\_num\cdot warmup\_steps^{-1.5}) $$
+
+$$ lrate={1\over \sqrt {d_{model}}}min(step\_{num}^{-0.5},step\_{num}\cdot warmup\_{steps}^{-1.5}) $$
 
 ### Regularization
 
@@ -195,7 +196,7 @@ $$ y_k^{LS}=y_k(1-\alpha)+\alpha/K $$
 
 ## 코드
 
-- Transformer의 output에 대한 입력은 shifted 되어 입력된다. ![자세한 것은 링크를 참조](https://github.com/sgrvinod/a-PyTorch-Tutorial-to-Transformers)
+- Transformer의 output에 대한 입력은 shifted 되어 입력된다. [자세한 것은 링크를 참조](https://github.com/sgrvinod/a-PyTorch-Tutorial-to-Transformers)
 
 ```python
 import torch
