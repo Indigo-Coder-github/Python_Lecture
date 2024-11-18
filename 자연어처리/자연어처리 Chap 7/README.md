@@ -23,7 +23,7 @@
 
 - 논문의 Introduction에서는 자연어처리에 대한 지도학습과 비지도학습을 비교
   - 지도학습을 위한 대규모 데이터가 부족하며 구축하자니 시간이 오래걸림
-  - 또한 지도학습이 가능해도 [[Word2Vec]], [[Glove]] 등의 비지도학습 방식으로 사전학습된 단어 임베딩을 사용하는 것이 성능을 향상시켰음
+  - 또한 지도학습이 가능해도 Word2Vec, Glove 등의 비지도학습 방식으로 사전학습된 단어 임베딩을 사용하는 것이 성능을 향상시켰음
 - 언어 모델의 준지도 학습, 비지도 학습에 있어 다음과 같은 어려움이 있음
   - 전이학습에 유용한 텍스트 rerpesentation을 학습하기 위해선 어떤 objective가 가장 효과적인가
   - 이전의 연구들은 특정 task만을 위한 접근이 주로 이뤄짐
@@ -49,9 +49,9 @@ $$
 
 $$
 \begin{align}
-&h_0=U_cW_e+W_p
-\\&h_l=transformer\_block(h_{l-1})\forall i \in [1,n]
-\\&P(u)=softmax(h_nW_e^T)
+& h_0=U_cW_e+W_p\\
+& h_l=transformer\_block(h_{l-1})\forall i \in [1,n]\\
+& P(u)=softmax(h_nW_e^T)
 \end{align}
 $$
 
@@ -67,7 +67,6 @@ $$
 - 다음과 같은 objective를 최대화
 
 $$
-
 L_2(C)=\sum_{(x,y)}logP(y|x^1,\cdots,x^m)
 $$
 
@@ -253,7 +252,7 @@ print(generated_text)
 
 ![Bert%20Fig%201.png](Bert%20Fig%201.png)
 
-- [[ELMo]], [[GPT-1]] 등에서 보인 사전 학습-finet tuning이 큰 효과를 보이면서 transformer 이후로 많은 LLM들이 이 방식을 채택
+- ELMo, GPT-1 등에서 보인 사전 학습-finet tuning이 큰 효과를 보이면서 transformer 이후로 많은 LLM들이 이 방식을 채택
   - 그림에서 볼 수 있듯이 출력 layer만 제외하고 보면 같은 구조를 사용
   - 서로 다른 downstream task에 사전학습된 모델의 파라미터를 사용하면서도 fine tuning을 통해 모든 파라미터들을 각 task에 맞게 조정
 
