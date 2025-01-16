@@ -2,13 +2,13 @@
 
 ## 1기
 
-- 2023학년도 2학기
+- [2023학년도 2학기](https://github.com/Indigo-Coder-github/Python_Lecture/tree/2023-2)
 - 초급반 8명, 중급반 5명
 - 각 폴더의 README.md가 강의자료, Python 파일은 예제 코드
 
 ## 2기
 
-- 2024학년도 1학기
+- [2023학년도 2학기](https://github.com/Indigo-Coder-github/Python_Lecture/tree/2024-1)
 - 기초반 4명, 응용반 9명
 
 ### 기초반
@@ -52,5 +52,10 @@
 
 ## 3기
 
-- 2024학년도 2학기
+- [2024학년도 2학기](https://github.com/Indigo-Coder-github/Python_Lecture/tree/2024-2)
 - 기초반 3명, 자연어처리 3명
+
+## 4기
+
+- [2025학년도 1학기](https://github.com/Indigo-Coder-github/Python_Lecture/tree/2025-1)
+- 기초반 X명, ??? X명
