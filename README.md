@@ -58,4 +58,4 @@
 ## 4기
 
 - [2025학년도 1학기](https://github.com/Indigo-Coder-github/Python_Lecture/tree/2025-1)
-- 기초반 X명, 자료구조와 알고리즘 X명
+- 기초반 3명
