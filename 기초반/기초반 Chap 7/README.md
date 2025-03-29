@@ -3,16 +3,17 @@
 ## TOC
 
 - [1. Type Hint](#1-type-hint)
-- [2. Type Hint](#2-iterator반복자)
+- [2. Iterator(반복자)](#2-iterator반복자)
   - [2-1. Iterable Object(반복 가능한 객체)](#2-1-iterable-object반복-가능한-객체)
   - [2-2. 반환값 무시](#2-2-반환값-무시)
   - [2-3. lazy evaluation(지연 평가)](#2-3-lazy-evaluation지연-평가)
 - [3. Generator(발생자)](#3-generator발생자)
 - [4. Lambda(람다식, 익명함수)](#4-lambda람다식-익명함수)
+- [5. Assignment Expression(할당 연산자)](#5-assignment-expression)
 
 ## [1](#toc). Type Hint
 
-- python 3.5에서부터 지원하는 사항
+- python 3.5에서부터 지원하는 기능
 - **python 실행 환경에서는 함수와 변수의 자료형에 대해 강제하지 않기 때문에 type checker, IDE, linter 등에서 사용되는 third party tool의 성격이다.**
   - IDE에서 변수에 type hint를 적용하면 해당 변수에서 불러올 수 있는 내부 요소를 바로 파악할 수 있다.
 - `def function_name(parameter: type) -> return_type`으로 표기한다.
@@ -58,3 +59,40 @@
   - 익명함수이기 때문에 이 식은 객체 자체이고 반환 값을 받고자 하면 변수를 선언해야 함
     - 혹은 `(lambda paramters: expression)(parameter_value)`를 통해 바로 값을 받을 수도 있음
   - expression은 한 줄로만 표현이 가능해야 함
+
+## [5](#toc). Assignment Expression(:=)
+
+- Python 3.8부터 지원하는 기능
+  - `:=`가 바다코끼리를 닮았다고 해서 Walrus Operator라고도 불림
+- `variable := expression`으로 선언
+  - 변수의 재사용성과 가독성을 높이고 코드 줄 수를 줄임
+  - 아래와 같은 형태로 작성할 수 있음
+
+```python
+import requests
+#request에 대한 코드를 받아와 할당시키면서 값이 200이 넘는지 검사
+#넘는다면 response를 출력
+if (response := requests.get("https://www.naver.com")) > 200:
+    print(response)
+#아래는 위의 코드와 동치인 코드
+response = requests.get("https://www.naver.com")
+if response > 200: print(response)
+#list comprehension 예시
+#데이터의 합을 구하고 평균과 분산을 각각 구한 list
+data = [1,2,3,4,5,6]
+[y := sum(data), y//len(data), sum([i**2 for i in data])//len(data) - (y//len(data))**2]
+#Output:[21, 3, 6]
+def f(x): return x%2
+even_data = [y for x in data if(y := f(x) == 0)]
+#Output:[2, 4, 6]
+```
+
+- 다만, 단순 할당이나 재할당 형태는 모호성이나 혼란을 피하기 위해 무효한 구문으로 설정되어있거나 유효하더라도 권장하지 않음
+
+```python
+def f(x): pass
+#아래 예시들은 불가능한 assignment expression임
+y := f(x)
+y0 = y1 := f(x)
+g(x=y:=f(x))
+```
