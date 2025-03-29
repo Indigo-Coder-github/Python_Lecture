@@ -26,18 +26,18 @@
   - [8-2. while](#8-2-while)
   - [8-3. break, else, pass, continue](#8-3-break-else-pass-continue)
 
-## 1. Sequence Type
+## [1](#toc). Sequence Type
 
 - iterator를 지원하는 타입
 - 앞서 설명한 타입들은 Sequence Type이 아닌 타입들로 iterator를 지원하지 않는다.
 
-### 1-1. Iterator(반복자)
+### [1-1](#toc). Iterator(반복자)
 
 - `__iter__()`함수와 `__next__()` 함수를 내부적으로 갖고 처리하는 자료형(클래스)
   - `__iter__()` 함수는 Iterator 타입의 객체를 반환한다.
   - `__next__()` 함수는 다음 요소에 접근한다.
 
-### 1-2. Sequence Type 함수
+### [1-2](#toc). Sequence Type 함수
 
 |연산자|결과|비고|
 |:-:|:-:|:--:|
@@ -68,7 +68,7 @@ print("The index of 3 in range of test_list[1:5] is", test_list[1:5].index(3))
 print("The count of 3 in test_list is ", test_list.count(3))
 ```
 
-### 1-3. slicing
+### [1-3](#toc). slicing
 
 - Ada, Go, Python 등 일부 언어에서 지원하는 list에 대한 독특한 기능
 - `s[i:j:k]`로 표시하며 i에서 j-1까지의 요소를 동일한 Sequence Type으로 반환한다.
@@ -92,7 +92,7 @@ print("test_list[1::2] = ", test_list[1::2])
 print("test_list[::-1] = ", test_list[::-1])
 ```
 
-## 2. list
+## [2](#toc). list
 
 - 일반적으로 비슷한 요소를 저장하는 Mutable Sequence Type
 
@@ -108,7 +108,7 @@ blank_list = list() #[]
 print(str_to_list)
 ```
 
-### 2-1. list 함수
+### [2-1](#toc). list 함수
 
 - 공식 문서에서는 `collections.abc.MutableSequence`에 속한 자료형들에서 가능한 연산이라고 했으나 내장 타입 중에는 list밖에 없어 list 함수 항목으로 나타냄
 
@@ -157,7 +157,7 @@ test_list.reverse()
 print(test_list)
 ```
 
-### 2-2. list comprehension(리스트 표현식)
+### [2-2](#toc). list comprehension(리스트 표현식)
 
 - list를 생성할 때 식, for문, if문을 한 문장으로 묶어 생성하는 것
   - tuple, set, dictionary에도 적용할 수 있다.
@@ -181,14 +181,14 @@ multiple_of_6_list = [True if x % 6 == 0 else False for x in range(20)]
 print(multiple_of_6_list)
 ```
 
-### 2-3. [list == array?](https://stackoverflow.com/questions/176011/python-list-vs-array-when-to-use)
+### [2-3](#toc). [list == array?](https://stackoverflow.com/questions/176011/python-list-vs-array-when-to-use)
 
 - 자료구조 상으로 list와 배열은 엄연히 다른 존재이고 Python에서 `array`모듈을 별도로 지원
 - 정의 상 다른 개념이지만 사용에 있어서는 거의 동치임
 - Python에서 list는 상수시간에 작동할 수 있도록 구현되었지만 그 대가로 배열보다 많은 공간을 필요로 함
 - `array`모듈은 C로 구현되었기 때문에 빠른 연산과 적은 메모리(특히 수학)가 필요할 때 사용
 
-### 2-4. 다차원 list 생성 주의
+### [2-4](#toc). 다차원 list 생성 주의
 
 - `[[] for i in range(x)]`와 `[[]] * x`는 다르게 작동함
   - Sequence Type의 `*`연산자는 복사가 되는 것이 아닌 여러 번 참조하는 연산자이다.
@@ -205,7 +205,7 @@ print(comprehension_2d_list)
 print(multiple_2d_list)
 ```
 
-## 3. tuple
+## [3](#toc). tuple
 
 - 일반적으로 서로 무관한 데이터를 저장하는 Immutable Sequence Type
   - immutable하다는 것은 내부의 값이 수정될 수 없는 것을 의미한다.
@@ -222,7 +222,7 @@ using_commas_itmes = ("a","b","c")
 using_constructor = tuple("tuple") #("t","u","p","l","e")
 ```
 
-## 4. range
+## [4](#toc). range
 
 - 숫자들을 순서대로 나열하는 Immutable Sequence Type
   - 일반적으로 for문에서 특정 횟수만큼 반복하기 위해 사용한다.
@@ -245,7 +245,7 @@ print(list(range(10, 1, -1)))
 print(list(range(10, 1, -2)))
 ```
 
-## 5. string (Text Sequence Type)
+## [5](#toc). string (Text Sequence Type)
 
 - 문자열을 담는 Immutable Sequence Type
 - UTF-8로 인코딩한다.
@@ -259,7 +259,7 @@ triple_single_quote = '''Triple single quote'''
 triple_double_quote = """Triple doulbe quote"""
 ```
 
-### 5-1. string 함수
+### [5-1](#toc). string 함수
 
 - Sequence Type의 함수도 사용할 수 있다.
 
@@ -368,7 +368,7 @@ print(test_string.upper())
 print(test_string.zfill(40))
 ```
 
-## 6. Set Type
+## [6](#toc). Set Type
 
 - hashable한 요소들로 구성된 순서가 없는 집합
   - Set와 Dictionary Type은 Sequence Type이 아니다! collection이라는 타입에 Sequence, Set, Dictionary가 종속된다.
@@ -386,7 +386,7 @@ even_set_with_comprehension = {i for i in range(20) if i%2 == 0}
 empty_set = set()
 ```
 
-### 6-1. Hash Table(Hashmap, Hashable)
+### [6-1](#toc). Hash Table(Hashmap, Hashable)
 
 - key-value 쌍으로 구성된 요소에 대해 key에 대한 hash function 값의 위치에 value를 저장하는 자료구조
   - key는 hash function에 대한 입력값으로 주어지기 때문에 Python에서는 Immutable Type만 사용할 수 있다.
@@ -395,7 +395,7 @@ empty_set = set()
   - hash function은 일반적으로 나머지 연산자(%, mod)를 사용한다.
 - 탐색, 삽입, 삭제 모두 시간복잡도가 `O(1)`이라는 강력한 장점을 갖고 있지만 충돌이 발생할 수 있고 해시 함수의 성능에 영향을 많이 받으며 key-value 쌍이 아닌 자료구조에선 부적합할 수 있다는 단점을 갖고 있다.
 
-### 6-2. Set 함수
+### [6-2](#toc). Set 함수
 
 |연산자|결과|비고|
 |:-:|:-:|:-:|
@@ -451,7 +451,7 @@ test_set.clear()
 print(test_set)
 ```
 
-## 7. dictionary(Mapping Type)
+## [7](#toc). dictionary(Mapping Type)
 
 - 임의의 값을 hashable한 값에 대응시키는 Mutable Type
   - Python 표준 Mapping Type은 dictionary만 있다.
@@ -464,7 +464,7 @@ dict_constructor_1 = dict([("Korea", "Seoul"), ("USA", "Washington D.C."), ("Jap
 dict_constructor_2 = dict(Korea="seoul", USA="Washington D.C.", Japan="Tokyo", China="Beijing")
 ```
 
-### 7-1. dictionary 함수
+### [7-1](#toc). dictionary 함수
 
 - 3.7 이상부터는 삽입 순서에 따른 순서를 보장하며 value가 바뀌었다고 순서가 바뀌진 않는다.
 - [3.9 이상부터는 `|`연산과 `|=`연산을 지원하며 dictionary를 서로 비교한 결과를 새로운 dictionary로 반환한다.](https://docs.python.org/3/library/stdtypes.html#mapping-types-dict)
@@ -521,7 +521,7 @@ print(test_dict.pop("India"))
 print(test_dict.values())
 ```
 
-### 7-2. dictview 함수
+### [7-2](#toc). dictview 함수
 
 - `dict.keys()`, `dict.values()`, `dict.items()`로 도출되는 자료형에 대한 함수
 
@@ -532,9 +532,9 @@ print(test_dict.values())
 |`x in dictview`|x가 dictview에 있다면 True를 반환, 아니라면 False를 반환||
 |`reversed(dictview)`|dictview에 대한 뒤집힌 iterator를 반환||
 
-## 8. Loop (반복문)
+## [8](#toc). Loop (반복문)
 
-### 8-1. for
+### [8-1](#toc). for
 
 - Sequence Type의 요소를 순서대로 순회하는 구문
 - `for *variables in *sequences: code_block`형태로 사용한다.
@@ -550,7 +550,7 @@ for i in range(5):
     print(i)
 ```
 
-### 8-2. while
+### [8-2](#toc). while
 
 - 조건식을 만족할 동안 계속 반복하는 구문
 - `while condition: code_block`형태로 사용하며 condition이 False가 될 때까지 `code_block`을 실행한다.
@@ -566,7 +566,7 @@ while True:
     print(1)
 ```
 
-### 8-3. break, else, pass, continue
+### [8-3](#toc). break, else, pass, continue
 
 - `break`는 현재 코드블록의 반복문을 종료시킴
   - `else`문이 있어도 이를 생략한다.

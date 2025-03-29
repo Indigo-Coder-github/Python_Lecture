@@ -19,7 +19,7 @@
   - [6-2. 비교 연산자](#6-2-비교-연산자)
 - [7. Condition Statement (조건문)](#7-condition-statement-조건문)
 
-## 1. Variable(변수)
+## [1](#toc). Variable(변수)
 
 - 값이 저장된 메모리 주소
   - 좀 더 쉽게 얘기하면 메모리(RAM)에서 값을 할당받는 (값이 저장되는) 공간
@@ -39,7 +39,7 @@ del var
 print(var)
 ```
 
-### 1-1. Coding Convention
+### [1-1](#toc). Coding Convention
 
 - 특정 프로그래밍 언어 사용자들이 관습적으로 지키는 변수 명명 규칙
 - Python도 커뮤니티 크기가 큰 만큼 PEP8의 Coding Convention 분량이 매우 크다.
@@ -58,7 +58,7 @@ example_variable = None
 EXAMPLE_CONSTANT = None
 ```
 
-## 2. Constant(상수)
+## [2](#toc). Constant(상수)
 
 - 첫 선언 이후 변하지 않는 값
   - `CONSTANT_NAME = "NAME"`형태로 선언한다.
@@ -72,7 +72,7 @@ PI = 1.141
 print("Is π {}?".format(PI))
 ```
 
-## 3. 세미콜론, Indentation
+## [3](#toc). 세미콜론, Indentation
 
 - python은 indentation을 기준으로 줄을 구분
   - 즉, 줄 끝마다 세미콜론(;)을 붙일 필요가 없다.
@@ -83,7 +83,7 @@ print("Is π {}?".format(PI))
 - 같은 indentation에 있는 코드를 하나의 코드 블록에 속한다고 한다.
   - 다른 언어의 경우 일반적으로 중괄호로 나타낸다.
 
-## 4. Comment(주석)
+## [4](#toc). Comment(주석)
 
 - 코드에 대한 보충설명
 - `#`으로 시작하며 여러 줄을 한 번에 묶는 방식은 지원하지 않는다.
@@ -97,19 +97,19 @@ print("Is π {}?".format(PI))
 print("b")
 ```
 
-## 5. Numeric Type
+## [5](#toc). Numeric Type
 
-### 5-1. int
+### [5-1](#toc). int
 
 - `int(x, base=10)`생성자를 통해 int형으로 바꿀 수 있음
 - 크기 제한이 없다.
 
-### 5-2. float
+### [5-2](#toc). float
 
 - `float(x=0.0)`생성자를 통해 float형으로 바꿀 수 있음
 - C언어의 double형에 해당하는 정확도를 가진다.
 
-### 5-3. complex
+### [5-3](#toc). complex
 
 - `complex(real=0, imag=0)`이나 `complex(string)`생성자를 통해 complex형으로 바꿀 수 있음
 - 실수부와 허수부 모두 부동 소수점 방식을 사용한다.
@@ -125,7 +125,7 @@ print(complex("10+10j").real, complex("10+10j").imag)
 
 ```
 
-### 5-4. 연산자
+### [5-4](#toc). 연산자
 
 - 연산자 우선순위는 [해당 링크를 따른다.](https://docs.python.org/3/reference/expressions.html#operator-summary)
 
@@ -160,7 +160,7 @@ print(pow(10, 10))
 print(pow(10, 10, 10))
 ```
 
-#### 5-4-1. int, float 연산자
+#### [5-4-1](#toc). int, float 연산자
 
 - 더 많은 함수는 [math](https://docs.python.org/3/library/math.html#module-math) 모듈과 [cmath](https://docs.python.org/3/library/cmath.html#module-cmath)모듈에서 정의하고 있음
 
@@ -180,7 +180,7 @@ print(math.floor(10.1010101))
 print(math.ceil(10.1010101))
 ```
 
-#### 5-4-2. 비트 연산자
+#### [5-4-2](#toc). 비트 연산자
 
 - 정수가 주어지면 해당 정수의 모든 비트 값에 대한 연산을 수행
 
@@ -209,7 +209,7 @@ print(1010>>2)
 # 1111110010 >> 2 = 11111100 = 252
 ```
 
-## 6. Boolean Type
+## [6](#toc). Boolean Type
 
 - True, False라는 두 개의 상수로 구성된 타입
 - 내장 함수 `bool(value)`를 사용하면 value의 Boolean 타입을 반환해준다.
@@ -223,7 +223,7 @@ print(True + True)
 print(int(True) + int(True))
 ```
 
-### 6-1. Boolean 연산자(논리 연산자)
+### [6-1](#toc). Boolean 연산자(논리 연산자)
 
 - 비트 연산자에 대응되더라도 논리 연산자를 사용할 것을 권장
 - Python의 논리 연산자는 short-circuit operator로 앞의 값이 결정되면 뒤의 값을 검사하지 않는다.
@@ -245,7 +245,7 @@ print(True and False)
 print(not True)
 ```
 
-### 6-2. 비교 연산자
+### [6-2](#toc). 비교 연산자
 
 - 비교 연산자 간의 우선순위는 모두 동일함
 - Python은 비교 연산자를 연속으로 쓸 수 있다.
@@ -268,7 +268,7 @@ print(not True)
 print(10 < 10, 10 <= 10, 10 > 10, 10 >= 10, 10 == 10, 10 != 10)
 ```
 
-## 7. Condition Statement (조건문)
+## [7](#toc). Condition Statement (조건문)
 
 - [사용자가 정의한 식의 참과 거짓을 평가해 다른 계산이나 행동으로 수행하는 명령](https://en.wikipedia.org/wiki/Conditional_(computer_programming))
   - `if statement: code_block` 형태로 사용한다.
@@ -296,4 +296,14 @@ if 102958371 % 2 == 0:
 elif 102958371 % 2 == 1:
     print("This is odd number.")
 else: print("Is this 0?")
+
+x = 102958371
+# match의 변수 여러 개, 같은 갯수의 값을 case에 쓸 수 있음
+match x:
+    case x % 2 == 0:# case 뒤에 if문을 추가적으로 붙일 수 있음
+        print("This is even number.")
+    case x % 2 == 1:
+        print("This is odd number.")
+    case _:
+        print("Is this 0?")
 ```

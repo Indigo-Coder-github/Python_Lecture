@@ -13,7 +13,7 @@
   - [3-2. File Output](#3-2-file-output)
 - [4. Module(모듈)](#4-module모듈)
 
-## 1. Function(함수)
+## [1](#toc). Function(함수)
 
 - 반복적으로 사용하는 코드에 이름을 붙여 추상적으로 사용하도록 한 것
 - `def function_name(parameters): code_block (with return)`로 선언하며 `function_name(parameters)`로 사용한다.
@@ -26,16 +26,16 @@
 - `function_name(parameter_name=parameter_value)`로 호출한다.
 - 최종적으로 함수는 `def function_name(args, args=default, *args, **kwargs)`의 형태로 parameter를 가진다.
 
-## 2. Console I/O
+## [2](#toc). Console I/O
 
-### 2-1. Console Input
+### [2-1](#toc). Console Input
 
 - 콘솔 창에서 키보드의 입력 값을 전달받는 방식
 - `input()`함수를 통해 입력을 받는다.
   - 코딩 테스트나 임베디드 등을 위해 표준 입력이 필요하다면 `sys.stdin.readline()`을 사용하며 [코딩 테스트 등의 여러 입력 케이스에 대해서는 해당 링크에 정리되어 있다.](https://velog.io/@yeseolee/Python-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%9E%85%EB%A0%A5-%EC%A0%95%EB%A6%ACsys.stdin.readline)
 - `input()`함수의 반환 타입은 문자열이기 때문에 다른 자료형으로 사용하고자 한다면 형 변환을 거쳐줘야 한다.
 
-### 2-2. Console Output
+### [2-2](#toc). Console Output
 
 - 출력 값을 콘솔 창에 띄워 표시하는 방식
 - `print(params, sep=" ", end="\n")`함수를 통해 출력한다.
@@ -43,7 +43,7 @@
   - end는 맨 끝에 붙이는 값으로 출력이 다 끝나고 end 값을 출력한다. default는 줄바꿈이다.
   - 제어문자를 통해 [줄바꿈, 띄어쓰기, tab 등을 조절할 수 있다.](https://en.wikipedia.org/wiki/Control_character#In_ASCII)
 
-#### 2-2-1. format
+#### [2-2-1](#toc). format
 
 - 문자열 formatting을 지원하는 함수
   - format 함수에 전달되는 값은 출력할 수 있는 모든 자료형이라면 가능하다.
@@ -53,9 +53,9 @@
   - 좀 더 다양한 활용법은 위의 링크와 더불어 [여기서도](https://dojang.io/mod/page/view.php?id=2300) 확인할 수 있다. 해당 강의에서 format 함수의 복잡한 사용은 거의 없다.
 - string 자료형의 메서드이기 때문에 출력뿐 아니라 문자열을 다루는 상황이라면 언제든 사용할 수 있다.
 
-## 3. File I/O
+## [3](#toc). File I/O
 
-### 3-1. File Input
+### [3-1](#toc). File Input
 
 - 파일에 있는 값을 읽어들여 입력하는 방식
 - `open()`함수를 통해 파일을 변수에 저장하고 그 변수를 `read()`함수로 내용을 읽어들인다. 이후 `close()`함수로 안전하게 파일 읽기를 종료한다.
@@ -68,21 +68,21 @@
 - `read()`와 `readlines()`의 요소에는 개행문자(`\n`) 등의 제어 문자가 모두 저장된다.
 - `readline()`함수는 한 줄만 읽어 반환한다. 때문에 반복문을 사용해야 한다.
 
-#### 3-1-1. with
+#### [3-1-1](#toc). with
 
 - `__enter__()`와 `__exit__()`함수를 사용하여 정의된 context manager에서 사용할 수 있는 구문
   - `with class_name() as another_name`형태로 사용한다.
 - with 구문으로 파일을 불러올 때 `__enter__()`함수로 파일에 진입하고 with 구문 내부가 끝나면 `__exit__()`함수로 파일을 닫는 내부적 절차가 실행된다.
   - 덕분에 `close()` 함수를 사용하지 않아도 자동으로 파일 읽기를 종료하는 동시에 코드 줄 수를 줄일 수 있다.
 
-### 3-2. File Output
+### [3-2](#toc). File Output
 
 - 출력 값을 파일에 저장하여 출력하는 방식
 - 파일을 읽을 때와 마찬가지로 `open()` 함수를 사용하지만 쓰기 모드(w)로 설정하며 `write()` 함수를 통해 값을 쓴다.
   - `write(string)`함수는 string을 파일에 쓴다. 개행문자(`\n`)가 없으면 줄바꿈이 일어나지 않는다.
   - `writelines(list)`함수는 list의 요소를 모두 파일에 쓴다. write 함수와 마찬가지로 개행문자(`\n`)가 없으면 줄바꿈이 일어나지 않는다.
 
-## 4. Module(모듈)
+## [4](#toc). Module(모듈)
 
 - 정의문과 구문을 갖고 있는 Python 파일
   - 이 모듈의 집합체를 package라고 한다.
